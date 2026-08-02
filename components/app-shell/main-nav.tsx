@@ -7,9 +7,11 @@ import {
   NavigationMenuList,
 } from "@workspace/ui/components/navigation-menu"
 import { cn } from "@workspace/ui/lib/utils"
+import { motion } from "motion/react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
+import { layoutMorph } from "@/lib/motion"
 import { navItems } from "@/lib/routes"
 
 function MainNav() {
@@ -35,13 +37,20 @@ function MainNav() {
                   )
                 }
                 className={cn(
-                  "px-3 py-2 font-mono text-sm data-active:bg-transparent",
+                  "relative px-3 py-2 font-mono text-sm data-active:bg-transparent",
                   active
                     ? "text-foreground"
                     : "text-muted-foreground hover:text-foreground"
                 )}
               >
                 {item.label}
+                {active ? (
+                  <motion.span
+                    layoutId="nav-active"
+                    transition={layoutMorph}
+                    className="absolute inset-x-3 -bottom-px h-px bg-foreground"
+                  />
+                ) : null}
               </NavigationMenuLink>
             </NavigationMenuItem>
           )

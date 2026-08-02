@@ -18,10 +18,12 @@ function ProjectCard({
   project,
   showMetric = false,
   showRail = false,
+  showRole = false,
 }: {
   project: Project
   showMetric?: boolean
   showRail?: boolean
+  showRole?: boolean
 }) {
   return (
     <Link href={routes.project(project.slug)} className="group block h-full">
@@ -46,6 +48,11 @@ function ProjectCard({
           <p className="text-sm leading-normal text-muted-foreground">
             {project.blurb}
           </p>
+          {showRole ? (
+            <p className="mt-2 border-t border-border pt-3 font-mono text-xs text-muted-foreground">
+              {project.role}
+            </p>
+          ) : null}
         </CardContent>
         <CardContent>
           <StackTags items={project.stack} />

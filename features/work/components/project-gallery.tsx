@@ -11,11 +11,13 @@ import {
   ToggleGroup,
   ToggleGroupItem,
 } from "@workspace/ui/components/toggle-group"
+import { AnimatePresence, motion } from "motion/react"
 import * as React from "react"
 
 import { ProjectCard } from "@/features/work/components/project-card"
 import { filterByStack, stacksOf } from "@/features/work/lib/stacks"
 import type { Project } from "@/lib/content"
+import { fadeUp, layoutMorph } from "@/lib/motion"
 
 const ALL = "all"
 
@@ -56,21 +58,36 @@ function ProjectGallery({ projects }: { projects: Project[] }) {
 
       {visible.length ? (
         <div className="grid gap-4.5 md:grid-cols-2">
-          {visible.map((project) => (
-            <ProjectCard key={project.slug} project={project} showRail />
-          ))}
+          <AnimatePresence mode="popLayout" initial={false}>
+            {visible.map((project) => (
+              <motion.div
+                key={project.slug}
+                layout
+                variants={fadeUp}
+                initial="hidden"
+                animate="show"
+                exit="exit"
+                transition={layoutMorph}
+                className="h-full"
+              >
+                <ProjectCard project={project} showRail />
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
       ) : (
-        <Empty className="border border-dashed">
-          <EmptyHeader>
-            <EmptyTitle className="font-mono text-sm">
-              No projects with {stack}
-            </EmptyTitle>
-            <EmptyDescription>
-              Clear the filter to see everything.
-            </EmptyDescription>
-          </EmptyHeader>
-        </Empty>
+        <motion.div variants={fadeUp} initial="hidden" animate="show">
+          <Empty className="border border-dashed">
+            <EmptyHeader>
+              <EmptyTitle className="font-mono text-sm">
+                No projects with {stack}
+              </EmptyTitle>
+              <EmptyDescription>
+                Clear the filter to see everything.
+              </EmptyDescription>
+            </EmptyHeader>
+          </Empty>
+        </motion.div>
       )}
     </div>
   )

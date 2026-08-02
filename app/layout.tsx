@@ -37,7 +37,7 @@ export default function RootLayout({
       lang="en"
       suppressHydrationWarning
       className={cn(
-        "font-sans antialiased",
+        "snap-y snap-proximity scroll-smooth font-sans antialiased",
         fontSans.variable,
         fontMono.variable
       )}
