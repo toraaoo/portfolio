@@ -28,14 +28,13 @@ export default async function Page({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const project = getProject(slug)
+  const index = projects.findIndex((item) => item.slug === slug)
+  const project = projects[index]
+  const next = projects[(index + 1) % projects.length]
 
-  if (!project) {
+  if (!project || !next) {
     notFound()
   }
-
-  const index = projects.findIndex((item) => item.slug === project.slug)
-  const next = projects[(index + 1) % projects.length]!
 
   return <ProjectPage project={project} next={next} />
 }
