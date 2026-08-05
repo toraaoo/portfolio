@@ -27,6 +27,7 @@ import {
   ProseHeading,
   ProseParagraph,
 } from "@workspace/ui/components/prose"
+import { ProseToc } from "@workspace/ui/components/prose-toc"
 import { SpecGrid } from "@workspace/ui/components/spec-grid"
 import { VisualSlot } from "@workspace/ui/components/visual-slot"
 import Link from "next/link"
@@ -34,8 +35,19 @@ import Link from "next/link"
 import { ProjectStatusBadge } from "@/features/work/components"
 import type { Project } from "@/lib/content"
 import { routes } from "@/lib/routes"
+import { slugify } from "@/lib/slug"
+
+const overview = "overview"
 
 function ProjectPage({ project, next }: { project: Project; next: Project }) {
+  const toc = [
+    { id: overview, label: "Overview" },
+    ...project.sections.map((section) => ({
+      id: slugify(section.heading),
+      label: section.heading,
+    })),
+  ]
+
   return (
     <div>
       <Container width="narrow" className="pt-12">
@@ -89,38 +101,48 @@ function ProjectPage({ project, next }: { project: Project; next: Project }) {
         </Reveal>
       </Container>
 
-      <Container width="prose" className="mt-14">
-        <Reveal>
-          <Prose>
-            <ProseHeading className="mt-0">Overview</ProseHeading>
-            <ProseParagraph>{project.summary}</ProseParagraph>
+      <Container width="wide" className="mt-14">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,11rem)] lg:gap-14">
+          <Reveal className="min-w-0 max-w-prose">
+            <Prose>
+              <ProseHeading id={overview} className="mt-0">
+                Overview
+              </ProseHeading>
+              <ProseParagraph>{project.summary}</ProseParagraph>
 
-            {project.sections.map((section) => (
-              <div key={section.heading}>
-                <ProseHeading>{section.heading}</ProseHeading>
-                {section.body.map((paragraph) => (
-                  <ProseParagraph key={paragraph}>{paragraph}</ProseParagraph>
-                ))}
-              </div>
-            ))}
+              {project.sections.map((section) => (
+                <div key={section.heading}>
+                  <ProseHeading id={slugify(section.heading)}>
+                    {section.heading}
+                  </ProseHeading>
+                  {section.body.map((paragraph) => (
+                    <ProseParagraph key={paragraph}>{paragraph}</ProseParagraph>
+                  ))}
+                </div>
+              ))}
 
-            <CodeBlock
-              code={project.code.source}
-              caption={project.code.caption}
-            />
-          </Prose>
+              <CodeBlock
+                code={project.code.source}
+                caption={project.code.caption}
+              />
+            </Prose>
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            <ButtonLink href={project.links.source} external>
-              <GithubLogoIcon data-icon="inline-start" />
-              Source
-            </ButtonLink>
-            <ButtonLink href={project.links.live} external variant="outline">
-              Live
-              <ArrowSquareOutIcon data-icon="inline-end" />
-            </ButtonLink>
-          </div>
-        </Reveal>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <ButtonLink href={project.links.source} external>
+                <GithubLogoIcon data-icon="inline-start" />
+                Source
+              </ButtonLink>
+              <ButtonLink href={project.links.live} external variant="outline">
+                Live
+                <ArrowSquareOutIcon data-icon="inline-end" />
+              </ButtonLink>
+            </div>
+          </Reveal>
+
+          <Reveal className="max-lg:hidden">
+            <ProseToc items={toc} className="sticky top-24" />
+          </Reveal>
+        </div>
       </Container>
 
       <Container width="narrow" className="mt-16">
