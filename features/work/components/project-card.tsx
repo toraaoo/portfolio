@@ -19,12 +19,10 @@ import { routes } from "@/lib/routes"
 function ProjectCard({
   project,
   showMetric = false,
-  showRail = false,
   showRole = false,
 }: {
   project: Project
   showMetric?: boolean
-  showRail?: boolean
   showRole?: boolean
 }) {
   return (
@@ -33,8 +31,7 @@ function ProjectCard({
         className={cn(
           "relative isolate h-full gap-5 overflow-hidden [--card-spacing:--spacing(6)]",
           "transition-[border-color,box-shadow,transform] duration-200 ease-out",
-          "group-hover:-translate-y-0.5 group-hover:border-foreground/40 group-hover:shadow-md",
-          showRail && project.featured && "border-l-2 border-l-foreground"
+          "group-hover:-translate-y-0.5 group-hover:border-foreground/40 group-hover:shadow-md"
         )}
       >
         <Spotlight />

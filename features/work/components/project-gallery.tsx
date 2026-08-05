@@ -89,7 +89,7 @@ function ProjectGallery({ projects }: { projects: Project[] }) {
                 transition={layoutMorph}
                 className="h-full"
               >
-                <ProjectCard project={project} showRail />
+                <ProjectCard project={project} />
               </motion.div>
             ))}
           </AnimatePresence>
