@@ -6,12 +6,12 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "@workspace/ui/components/navigation-menu"
+import { layoutMorph } from "@workspace/ui/lib/motion"
 import { cn } from "@workspace/ui/lib/utils"
 import { motion } from "motion/react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
-import { layoutMorph } from "@/lib/motion"
 import { navItems } from "@/lib/routes"
 
 function MainNav() {
@@ -25,15 +25,28 @@ function MainNav() {
             pathname.startsWith(prefix)
           )
 
+          const label = (
+            <>
+              {item.label}
+              {active ? (
+                <motion.span
+                  layoutId="nav-active"
+                  transition={layoutMorph}
+                  className="absolute inset-x-3 -bottom-px h-px bg-foreground"
+                />
+              ) : null}
+            </>
+          )
+
           return (
             <NavigationMenuItem key={item.href}>
               <NavigationMenuLink
                 data-active={active || undefined}
                 render={
                   item.external ? (
-                    <a href={item.href} />
+                    <a href={item.href}>{label}</a>
                   ) : (
-                    <Link href={item.href} />
+                    <Link href={item.href}>{label}</Link>
                   )
                 }
                 className={cn(
@@ -42,16 +55,7 @@ function MainNav() {
                     ? "text-foreground"
                     : "text-muted-foreground hover:text-foreground"
                 )}
-              >
-                {item.label}
-                {active ? (
-                  <motion.span
-                    layoutId="nav-active"
-                    transition={layoutMorph}
-                    className="absolute inset-x-3 -bottom-px h-px bg-foreground"
-                  />
-                ) : null}
-              </NavigationMenuLink>
+              />
             </NavigationMenuItem>
           )
         })}

@@ -2,8 +2,9 @@ import {
   DownloadSimpleIcon,
   EnvelopeSimpleIcon,
 } from "@phosphor-icons/react/ssr"
-
 import { Avatar, AvatarFallback } from "@workspace/ui/components/avatar"
+import { ButtonLink } from "@workspace/ui/components/button-link"
+import { Container } from "@workspace/ui/components/container"
 import {
   Item,
   ItemContent,
@@ -12,12 +13,17 @@ import {
   ItemMedia,
   ItemTitle,
 } from "@workspace/ui/components/item"
+import { Kicker } from "@workspace/ui/components/kicker"
+import { MaskText } from "@workspace/ui/components/motion/mask-text"
+import {
+  Reveal,
+  RevealGroup,
+  RevealItem,
+} from "@workspace/ui/components/motion/reveal"
+import { ScrollRail } from "@workspace/ui/components/motion/scroll-rail"
+import { Typewriter } from "@workspace/ui/components/motion/typewriter"
+import { StackTags } from "@workspace/ui/components/stack-tags"
 
-import { ButtonLink } from "@/components/button-link"
-import { Container } from "@/components/container"
-import { Kicker } from "@/components/kicker"
-import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal"
-import { StackTags } from "@/components/stack-tags"
 import { experience, profile, toolbox } from "@/lib/content"
 
 function AboutPage() {
@@ -25,7 +31,9 @@ function AboutPage() {
     <Container width="narrow" className="pt-16">
       <RevealGroup>
         <RevealItem>
-          <Kicker className="mb-4.5">{"// about"}</Kicker>
+          <Kicker className="mb-4.5">
+            <Typewriter text="// about" />
+          </Kicker>
         </RevealItem>
 
         <RevealItem className="flex flex-wrap items-start gap-7">
@@ -36,7 +44,7 @@ function AboutPage() {
           </Avatar>
           <div className="min-w-65 flex-1">
             <h1 className="font-heading text-3xl font-medium tracking-tighter">
-              {profile.name}
+              <MaskText text={profile.name} />
             </h1>
             <p className="mt-2 font-mono text-sm text-muted-foreground">
               {profile.role} · {profile.location}
@@ -70,40 +78,41 @@ function AboutPage() {
           {toolbox.map((group) => (
             <div key={group.label}>
               <Kicker className="mb-3">{group.label}</Kicker>
-              <StackTags items={group.items} />
+              <StackTags items={group.items} animated />
             </div>
           ))}
         </div>
       </Reveal>
 
       <Reveal>
-        <h2 className="mt-14 mb-2 font-heading text-xl font-semibold tracking-tight">
+        <h2 className="mt-14 mb-6 font-heading text-xl font-semibold tracking-tight">
           Experience
         </h2>
       </Reveal>
-      <ItemGroup className="gap-0">
-        {experience.map((entry) => (
-          <Item
-            key={entry.org}
-            className="items-start gap-5 rounded-none border-t-border px-0 py-5"
-          >
-            <ItemMedia className="w-32 shrink-0 pt-0.5 font-mono text-sm text-muted-foreground">
-              {entry.when}
-            </ItemMedia>
-            <ItemContent className="gap-1.5">
-              <div className="flex flex-wrap items-baseline gap-2">
-                <ItemTitle className="font-heading text-md font-semibold">
-                  {entry.role}
-                </ItemTitle>
-                <span className="font-mono text-sm text-muted-foreground">
-                  @ {entry.org}
-                </span>
-              </div>
-              <ItemDescription>{entry.note}</ItemDescription>
-            </ItemContent>
-          </Item>
-        ))}
-      </ItemGroup>
+      <ScrollRail>
+        <ItemGroup className="gap-0 pl-7">
+          {experience.map((entry) => (
+            <Reveal key={entry.org}>
+              <Item className="group items-start gap-5 rounded-none px-0 py-5">
+                <ItemMedia className="w-28 shrink-0 pt-0.5 font-mono text-sm text-muted-foreground transition-colors group-hover:text-foreground">
+                  {entry.when}
+                </ItemMedia>
+                <ItemContent className="gap-1.5">
+                  <div className="flex flex-wrap items-baseline gap-2">
+                    <ItemTitle className="font-heading text-md font-semibold">
+                      {entry.role}
+                    </ItemTitle>
+                    <span className="font-mono text-sm text-muted-foreground">
+                      @ {entry.org}
+                    </span>
+                  </div>
+                  <ItemDescription>{entry.note}</ItemDescription>
+                </ItemContent>
+              </Item>
+            </Reveal>
+          ))}
+        </ItemGroup>
+      </ScrollRail>
     </Container>
   )
 }

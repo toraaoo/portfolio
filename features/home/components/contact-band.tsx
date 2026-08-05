@@ -3,17 +3,19 @@ import {
   EnvelopeSimpleIcon,
   GithubLogoIcon,
 } from "@phosphor-icons/react/ssr"
+import { ButtonLink } from "@workspace/ui/components/button-link"
 import { Card, CardContent } from "@workspace/ui/components/card"
+import { Kicker } from "@workspace/ui/components/kicker"
+import { Spotlight } from "@workspace/ui/components/motion/spotlight"
 
-import { ButtonLink } from "@/components/button-link"
-import { Kicker } from "@/components/kicker"
 import { profile } from "@/lib/content"
 import { routes } from "@/lib/routes"
 
 function ContactBand() {
   return (
-    <Card className="[--card-spacing:--spacing(7)]">
-      <CardContent className="flex flex-wrap items-end justify-between gap-6">
+    <Card className="relative isolate overflow-hidden [--card-spacing:--spacing(7)]">
+      <Spotlight size={420} />
+      <CardContent className="relative flex flex-wrap items-end justify-between gap-6">
         <div className="max-w-125">
           <Kicker className="mb-3">{"// get in touch"}</Kicker>
           <p className="font-heading text-xl leading-snug font-medium tracking-tight">
@@ -36,9 +38,12 @@ function ContactBand() {
             <GithubLogoIcon data-icon="inline-start" />
             GitHub
           </ButtonLink>
-          <ButtonLink href={routes.about} variant="ghost">
+          <ButtonLink href={routes.about} variant="ghost" className="group">
             About
-            <ArrowRightIcon data-icon="inline-end" />
+            <ArrowRightIcon
+              data-icon="inline-end"
+              className="transition-transform duration-200 ease-out group-hover:translate-x-0.5"
+            />
           </ButtonLink>
         </div>
       </CardContent>

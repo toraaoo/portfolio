@@ -14,6 +14,7 @@ export const profile: Profile = {
     "I build systems with sharp edges — schedulers, query engines, and the tooling around them.",
   location: "Berlin, DE",
   timezone: "CET",
+  tz: "Europe/Berlin",
   email: "sam@rivera.dev",
   github: "github.com/samrivera",
   years: "2016 — now",

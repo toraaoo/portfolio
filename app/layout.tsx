@@ -2,11 +2,13 @@ import type { Metadata } from "next"
 import { JetBrains_Mono, Space_Grotesk } from "next/font/google"
 
 import "@workspace/ui/globals.css"
+import { MotionProvider } from "@workspace/ui/components/motion/motion-provider"
+import { ThemeProvider } from "@workspace/ui/components/theme-provider"
 import { cn } from "@workspace/ui/lib/utils"
 
+import { RouteTransition } from "@/components/app-shell/route-transition"
 import { SiteFooter } from "@/components/app-shell/site-footer"
 import { SiteHeader } from "@/components/app-shell/site-header"
-import { ThemeProvider } from "@/components/theme-provider"
 import { profile } from "@/lib/content"
 
 const fontSans = Space_Grotesk({
@@ -37,18 +39,22 @@ export default function RootLayout({
       lang="en"
       suppressHydrationWarning
       className={cn(
-        "snap-y snap-proximity scroll-smooth font-sans antialiased",
+        "scroll-smooth font-sans antialiased",
         fontSans.variable,
         fontMono.variable
       )}
     >
       <body>
         <ThemeProvider>
-          <div className="flex min-h-svh flex-col">
-            <SiteHeader />
-            <main className="flex-1">{children}</main>
-            <SiteFooter />
-          </div>
+          <MotionProvider>
+            <div className="flex min-h-svh flex-col">
+              <SiteHeader />
+              <main className="flex-1">
+                <RouteTransition>{children}</RouteTransition>
+              </main>
+              <SiteFooter />
+            </div>
+          </MotionProvider>
         </ThemeProvider>
       </body>
     </html>

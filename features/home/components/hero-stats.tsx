@@ -1,4 +1,8 @@
-import { Kicker } from "@/components/kicker"
+import { Kicker } from "@workspace/ui/components/kicker"
+import { CountUp } from "@workspace/ui/components/motion/count-up"
+import { RevealGroup, RevealItem } from "@workspace/ui/components/motion/reveal"
+
+import { LocalTime } from "@/features/home/components/local-time"
 import { profile, projects } from "@/lib/content"
 
 function HeroStats() {
@@ -8,24 +12,40 @@ function HeroStats() {
 
   const stats = [
     { label: "Experience", value: profile.years },
-    { label: "Projects shipped", value: String(shipped).padStart(2, "0") },
-    { label: "Based in", value: `${profile.location} · ${profile.timezone}` },
+    {
+      label: "Projects shipped",
+      value: <CountUp value={shipped} pad={2} />,
+    },
+    {
+      label: "Based in",
+      value: (
+        <span className="flex flex-wrap items-baseline gap-x-2">
+          {profile.location}
+          <LocalTime timeZone={profile.tz} />
+        </span>
+      ),
+    },
     { label: "Currently", value: "Scheduling CI at Halyard" },
   ]
 
   return (
-    <dl className="grid grid-cols-2 gap-x-8 gap-y-6 border-t border-border pt-7 md:grid-cols-4">
+    <RevealGroup
+      as="dl"
+      className="grid grid-cols-2 gap-x-8 gap-y-6 border-t border-border pt-7 md:grid-cols-4"
+    >
       {stats.map((stat) => (
-        <div key={stat.label} className="grid gap-1.5">
+        <RevealItem key={stat.label} className="group grid gap-1.5">
           <dt>
-            <Kicker>{stat.label}</Kicker>
+            <Kicker className="transition-colors group-hover:text-foreground">
+              {stat.label}
+            </Kicker>
           </dt>
           <dd className="font-heading text-md leading-snug font-medium">
             {stat.value}
           </dd>
-        </div>
+        </RevealItem>
       ))}
-    </dl>
+    </RevealGroup>
   )
 }
 

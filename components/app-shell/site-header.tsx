@@ -1,9 +1,11 @@
 import { GithubLogoIcon } from "@phosphor-icons/react/ssr"
 
+import { ButtonLink } from "@workspace/ui/components/button-link"
+import { ScrollProgress } from "@workspace/ui/components/motion/scroll-progress"
+import { ThemeToggle } from "@workspace/ui/components/theme-toggle"
+
 import { Logo } from "@/components/app-shell/logo"
 import { MainNav } from "@/components/app-shell/main-nav"
-import { ThemeToggle } from "@/components/app-shell/theme-toggle"
-import { ButtonLink } from "@/components/button-link"
 import { profile } from "@/lib/content"
 
 function SiteHeader() {
@@ -25,6 +27,7 @@ function SiteHeader() {
           </ButtonLink>
         </div>
       </div>
+      <ScrollProgress />
     </header>
   )
 }

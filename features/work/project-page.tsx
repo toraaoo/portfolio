@@ -4,6 +4,9 @@ import {
   ArrowSquareOutIcon,
   GithubLogoIcon,
 } from "@phosphor-icons/react/ssr"
+import { ButtonLink } from "@workspace/ui/components/button-link"
+import { CodeBlock } from "@workspace/ui/components/code-block"
+import { Container } from "@workspace/ui/components/container"
 import {
   Item,
   ItemActions,
@@ -11,17 +14,24 @@ import {
   ItemDescription,
   ItemTitle,
 } from "@workspace/ui/components/item"
+import { Kicker } from "@workspace/ui/components/kicker"
+import { MaskText } from "@workspace/ui/components/motion/mask-text"
+import {
+  Reveal,
+  RevealGroup,
+  RevealItem,
+} from "@workspace/ui/components/motion/reveal"
+import { Spotlight } from "@workspace/ui/components/motion/spotlight"
+import {
+  Prose,
+  ProseHeading,
+  ProseParagraph,
+} from "@workspace/ui/components/prose"
+import { SpecGrid } from "@workspace/ui/components/spec-grid"
+import { VisualSlot } from "@workspace/ui/components/visual-slot"
 import Link from "next/link"
 
-import { ButtonLink } from "@/components/button-link"
-import { CodeBlock } from "@/components/code-block"
-import { Container } from "@/components/container"
-import { Kicker } from "@/components/kicker"
-import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal"
-import { Prose, ProseHeading, ProseParagraph } from "@/components/prose"
-import { SpecGrid } from "@/components/spec-grid"
-import { StatusBadge } from "@/components/status-badge"
-import { VisualSlot } from "@/components/visual-slot"
+import { ProjectStatusBadge } from "@/features/work/components"
 import type { Project } from "@/lib/content"
 import { routes } from "@/lib/routes"
 
@@ -33,24 +43,25 @@ function ProjectPage({ project, next }: { project: Project; next: Project }) {
           href={routes.work}
           variant="ghost"
           size="sm"
-          className="-ml-3 text-muted-foreground"
+          className="group -ml-3 text-muted-foreground"
         >
-          <ArrowLeftIcon data-icon="inline-start" />
+          <ArrowLeftIcon
+            data-icon="inline-start"
+            className="transition-transform duration-200 ease-out group-hover:-translate-x-0.5"
+          />
           All work
         </ButtonLink>
 
         <RevealGroup>
           <RevealItem className="mt-9 flex items-center gap-3">
-            <StatusBadge status={project.status} />
+            <ProjectStatusBadge status={project.status} />
             <span className="font-mono text-sm text-muted-foreground">
               {project.year}
             </span>
           </RevealItem>
-          <RevealItem>
-            <h1 className="mt-4.5 font-heading text-4xl font-medium tracking-tighter">
-              {project.name}
-            </h1>
-          </RevealItem>
+          <h1 className="mt-4.5 font-heading text-4xl font-medium tracking-tighter">
+            <MaskText text={project.name} delay={0.1} />
+          </h1>
           <RevealItem>
             <p className="mt-4.5 text-lg leading-snug text-muted-foreground">
               {project.blurb}
@@ -117,17 +128,18 @@ function ProjectPage({ project, next }: { project: Project; next: Project }) {
           <Item
             variant="muted"
             render={<Link href={routes.project(next.slug)} />}
-            className="rounded-xl border border-border px-6 py-6"
+            className="group relative isolate overflow-hidden rounded-xl border border-border px-6 py-6 transition-colors hover:border-foreground/40"
           >
-            <ItemContent className="gap-1.5">
+            <Spotlight size={420} />
+            <ItemContent className="relative gap-1.5">
               <Kicker>Next project</Kicker>
-              <ItemTitle className="font-heading text-lg font-semibold">
+              <ItemTitle className="font-heading text-lg font-semibold transition-transform duration-200 ease-out group-hover:translate-x-0.5">
                 {next.name}
               </ItemTitle>
               <ItemDescription>{next.blurb}</ItemDescription>
             </ItemContent>
-            <ItemActions>
-              <ArrowRightIcon className="size-5.5" />
+            <ItemActions className="relative">
+              <ArrowRightIcon className="size-5.5 transition-transform duration-200 ease-out group-hover:translate-x-1" />
             </ItemActions>
           </Item>
         </Reveal>

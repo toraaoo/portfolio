@@ -7,11 +7,6 @@
       "next": "recommended",
       "react": "recommended",
       "tailwind": "recommended"
-    },
-    "rules": {
-      "a11y": {
-        "useAnchorContent": "off"
-      }
     }
   }
 }

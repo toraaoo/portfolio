@@ -11,15 +11,41 @@ import {
   ToggleGroup,
   ToggleGroupItem,
 } from "@workspace/ui/components/toggle-group"
+import { fadeUp, layoutMorph } from "@workspace/ui/lib/motion"
 import { AnimatePresence, motion } from "motion/react"
 import * as React from "react"
 
 import { ProjectCard } from "@/features/work/components/project-card"
 import { filterByStack, stacksOf } from "@/features/work/lib/stacks"
 import type { Project } from "@/lib/content"
-import { fadeUp, layoutMorph } from "@/lib/motion"
 
 const ALL = "all"
+
+function FilterItem({
+  value,
+  active,
+  children,
+}: {
+  value: string
+  active: boolean
+  children: React.ReactNode
+}) {
+  return (
+    <ToggleGroupItem
+      value={value}
+      className="relative isolate border-transparent bg-transparent transition-colors aria-pressed:bg-transparent aria-pressed:text-background"
+    >
+      {active ? (
+        <motion.span
+          layoutId="stack-filter"
+          transition={layoutMorph}
+          className="absolute inset-0 -z-10 rounded-md bg-foreground"
+        />
+      ) : null}
+      {children}
+    </ToggleGroupItem>
+  )
+}
 
 function ProjectGallery({ projects }: { projects: Project[] }) {
   const [stack, setStack] = React.useState<string | null>(null)
@@ -35,22 +61,15 @@ function ProjectGallery({ projects }: { projects: Project[] }) {
           setStack(!selected || selected === ALL ? null : selected)
         }}
         variant="outline"
-        className="flex-wrap"
+        className="flex-wrap rounded-lg border border-border p-1"
       >
-        <ToggleGroupItem
-          value={ALL}
-          className="aria-pressed:border-foreground aria-pressed:bg-foreground aria-pressed:text-background"
-        >
+        <FilterItem value={ALL} active={stack === null}>
           All
-        </ToggleGroupItem>
+        </FilterItem>
         {stacks.map((item) => (
-          <ToggleGroupItem
-            key={item}
-            value={item}
-            className="aria-pressed:border-foreground aria-pressed:bg-foreground aria-pressed:text-background"
-          >
+          <FilterItem key={item} value={item} active={stack === item}>
             {item}
-          </ToggleGroupItem>
+          </FilterItem>
         ))}
       </ToggleGroup>
 

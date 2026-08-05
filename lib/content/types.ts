@@ -34,6 +34,7 @@ export interface Profile {
   tagline: string
   location: string
   timezone: string
+  tz: string
   email: string
   github: string
   years: string

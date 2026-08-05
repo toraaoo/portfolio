@@ -1,3 +1,4 @@
+import { ArrowUpRightIcon } from "@phosphor-icons/react/ssr"
 import {
   Card,
   CardAction,
@@ -6,11 +7,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@workspace/ui/components/card"
+import { Spotlight } from "@workspace/ui/components/motion/spotlight"
+import { StackTags } from "@workspace/ui/components/stack-tags"
 import { cn } from "@workspace/ui/lib/utils"
 import Link from "next/link"
 
-import { StackTags } from "@/components/stack-tags"
-import { StatusBadge } from "@/components/status-badge"
+import { ProjectStatusBadge } from "@/features/work/components/project-status"
 import type { Project } from "@/lib/content"
 import { routes } from "@/lib/routes"
 
@@ -29,19 +31,23 @@ function ProjectCard({
     <Link href={routes.project(project.slug)} className="group block h-full">
       <Card
         className={cn(
-          "h-full gap-5 transition-[border-color,box-shadow] [--card-spacing:--spacing(6)] group-hover:border-foreground/40 group-hover:shadow-md",
+          "relative isolate h-full gap-5 overflow-hidden [--card-spacing:--spacing(6)]",
+          "transition-[border-color,box-shadow,transform] duration-200 ease-out",
+          "group-hover:-translate-y-0.5 group-hover:border-foreground/40 group-hover:shadow-md",
           showRail && project.featured && "border-l-2 border-l-foreground"
         )}
       >
-        <CardHeader className="items-baseline">
+        <Spotlight />
+        <CardHeader className="relative items-baseline">
           <CardDescription className="font-mono text-sm">
             {showMetric ? project.metric : project.year}
           </CardDescription>
-          <CardAction>
-            <StatusBadge status={project.status} />
+          <CardAction className="flex items-center gap-2">
+            <ProjectStatusBadge status={project.status} />
+            <ArrowUpRightIcon className="size-4 -translate-x-1 text-muted-foreground opacity-0 transition-all duration-200 ease-out group-hover:translate-x-0 group-hover:text-foreground group-hover:opacity-100" />
           </CardAction>
         </CardHeader>
-        <CardContent className="flex flex-1 flex-col gap-2">
+        <CardContent className="relative flex flex-1 flex-col gap-2">
           <CardTitle className="text-xl font-semibold tracking-tight">
             {project.name}
           </CardTitle>
@@ -54,7 +60,7 @@ function ProjectCard({
             </p>
           ) : null}
         </CardContent>
-        <CardContent>
+        <CardContent className="relative">
           <StackTags items={project.stack} />
         </CardContent>
       </Card>

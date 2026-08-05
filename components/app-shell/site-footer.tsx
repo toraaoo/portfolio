@@ -1,8 +1,8 @@
+import { Kicker } from "@workspace/ui/components/kicker"
 import { Separator } from "@workspace/ui/components/separator"
 import Link from "next/link"
 
 import { Logo } from "@/components/app-shell/logo"
-import { Kicker } from "@/components/kicker"
 import { profile } from "@/lib/content"
 import { navItems } from "@/lib/routes"
 import { site } from "@/lib/site"
