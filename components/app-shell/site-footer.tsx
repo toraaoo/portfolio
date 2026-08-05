@@ -1,3 +1,4 @@
+import { Container } from "@workspace/ui/components/container"
 import { Kicker } from "@workspace/ui/components/kicker"
 import { Separator } from "@workspace/ui/components/separator"
 import Link from "next/link"
@@ -16,7 +17,7 @@ const elsewhere = [
 function SiteFooter() {
   return (
     <footer className="dark mt-24 border-t border-border bg-background text-foreground">
-      <div className="mx-auto w-full max-w-content px-7 pt-14 pb-10">
+      <Container className="pt-14 pb-10">
         <div className="flex flex-wrap justify-between gap-8">
           <div className="max-w-85">
             <Logo />
@@ -79,7 +80,7 @@ function SiteFooter() {
             {profile.location} · {profile.timezone}
           </span>
         </div>
-      </div>
+      </Container>
     </footer>
   )
 }

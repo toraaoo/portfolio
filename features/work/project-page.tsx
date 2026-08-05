@@ -50,7 +50,7 @@ function ProjectPage({ project, next }: { project: Project; next: Project }) {
 
   return (
     <div>
-      <Container width="narrow" className="pt-12">
+      <Container className="pt-16">
         <ButtonLink
           href={routes.work}
           variant="ghost"
@@ -75,7 +75,7 @@ function ProjectPage({ project, next }: { project: Project; next: Project }) {
             <MaskText text={project.name} delay={0.1} />
           </h1>
           <RevealItem>
-            <p className="mt-4.5 text-lg leading-snug text-muted-foreground">
+            <p className="mt-4.5 max-w-prose text-lg leading-snug text-muted-foreground">
               {project.blurb}
             </p>
           </RevealItem>
@@ -92,7 +92,7 @@ function ProjectPage({ project, next }: { project: Project; next: Project }) {
         </RevealGroup>
       </Container>
 
-      <Container width="wide" className="mt-12">
+      <Container className="mt-12">
         <Reveal>
           <VisualSlot
             className="h-95"
@@ -101,7 +101,7 @@ function ProjectPage({ project, next }: { project: Project; next: Project }) {
         </Reveal>
       </Container>
 
-      <Container width="wide" className="mt-14">
+      <Container className="mt-14">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,11rem)] lg:gap-14">
           <Reveal className="min-w-0 max-w-prose">
             <Prose>
@@ -145,7 +145,7 @@ function ProjectPage({ project, next }: { project: Project; next: Project }) {
         </div>
       </Container>
 
-      <Container width="narrow" className="mt-16">
+      <Container className="mt-16">
         <Reveal>
           <Item
             variant="muted"

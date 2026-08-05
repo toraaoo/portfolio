@@ -1,6 +1,7 @@
 import { GithubLogoIcon } from "@phosphor-icons/react/ssr"
 
 import { ButtonLink } from "@workspace/ui/components/button-link"
+import { Container } from "@workspace/ui/components/container"
 import { ScrollProgress } from "@workspace/ui/components/motion/scroll-progress"
 import { ThemeToggle } from "@workspace/ui/components/theme-toggle"
 
@@ -11,7 +12,7 @@ import { profile } from "@/lib/content"
 function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md backdrop-saturate-150">
-      <div className="mx-auto flex h-15 w-full max-w-content items-center justify-between gap-4 px-7">
+      <Container className="flex h-15 items-center justify-between gap-4">
         <Logo />
         <div className="flex items-center gap-1">
           <MainNav />
@@ -26,7 +27,7 @@ function SiteHeader() {
             GitHub
           </ButtonLink>
         </div>
-      </div>
+      </Container>
       <ScrollProgress />
     </header>
   )
