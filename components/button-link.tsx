@@ -1,6 +1,6 @@
 import { Button } from "@workspace/ui/components/button"
 import Link from "next/link"
-import * as React from "react"
+import type * as React from "react"
 
 function ButtonLink({
   href,

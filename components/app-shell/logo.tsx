@@ -9,7 +9,8 @@ function Logomark({ className }: { className?: string }) {
     <svg
       viewBox="0 0 64 64"
       fill="none"
-      aria-hidden
+      role="presentation"
+      aria-hidden="true"
       className={cn("size-7", className)}
     >
       <rect

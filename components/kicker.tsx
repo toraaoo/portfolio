@@ -1,5 +1,5 @@
 import { cn } from "@workspace/ui/lib/utils"
-import * as React from "react"
+import type * as React from "react"
 
 function Kicker({ className, ...props }: React.ComponentProps<"div">) {
   return (
