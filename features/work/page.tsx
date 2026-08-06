@@ -5,9 +5,11 @@ import { RevealGroup, RevealItem } from "@workspace/ui/components/motion/reveal"
 import { Typewriter } from "@workspace/ui/components/motion/typewriter"
 
 import { ProjectGallery } from "@/features/work/components"
-import { profile, projects } from "@/lib/content"
+import { loadProfile, loadProjects } from "@/lib/content"
 
-function WorkPage() {
+async function WorkPage() {
+  const [profile, projects] = await Promise.all([loadProfile(), loadProjects()])
+
   return (
     <Container className="pt-16">
       <RevealGroup>

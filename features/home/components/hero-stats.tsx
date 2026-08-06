@@ -3,11 +3,17 @@ import { CountUp } from "@workspace/ui/components/motion/count-up"
 import { RevealGroup, RevealItem } from "@workspace/ui/components/motion/reveal"
 
 import { LocalTime } from "@/features/home/components/local-time"
-import { profile, projects } from "@/lib/content"
+import type { Profile, Project } from "@/lib/content"
 
-function HeroStats() {
+function HeroStats({
+  profile,
+  projects,
+}: {
+  profile: Profile
+  projects: Project[]
+}) {
   const shipped = projects.filter(
-    (project) => project.status === "Shipped"
+    (project) => project.status === "shipped"
   ).length
 
   const stats = [
@@ -21,11 +27,11 @@ function HeroStats() {
       value: (
         <span className="flex flex-wrap items-baseline gap-x-2">
           {profile.location}
-          <LocalTime timeZone={profile.tz} />
+          <LocalTime timeZone={profile.timezoneCode} />
         </span>
       ),
     },
-    { label: "Currently", value: "Scheduling CI at Halyard" },
+    { label: "Currently", value: profile.role },
   ]
 
   return (

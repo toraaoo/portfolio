@@ -1,20 +1,30 @@
 import type { SiteIdentity, SiteLink } from "@workspace/ui/lib/site"
 
-import { profile } from "@/lib/content"
+import { loadProfile } from "@/lib/content"
 import { routes } from "@/lib/routes"
 import { site } from "@/lib/site"
 
-export const identity: SiteIdentity = {
-  handle: profile.handle,
-  name: profile.name,
-  tagline: profile.tagline,
-  location: profile.location,
-  timezone: profile.timezone,
-  homeHref: routes.home,
-}
+export async function loadIdentity(): Promise<{
+  identity: SiteIdentity
+  elsewhere: SiteLink[]
+  github: string
+}> {
+  const profile = await loadProfile()
 
-export const elsewhere: SiteLink[] = [
-  { label: "GitHub", href: `https://${profile.github}` },
-  { label: "Email", href: `mailto:${profile.email}` },
-  { label: "Blog", href: site.blogUrl },
-]
+  return {
+    identity: {
+      handle: profile.handle,
+      name: profile.name,
+      tagline: profile.tagline,
+      location: profile.location,
+      timezone: profile.timezone,
+      homeHref: routes.home,
+    },
+    elsewhere: [
+      { label: "GitHub", href: `https://${profile.github}` },
+      { label: "Email", href: `mailto:${profile.email}` },
+      { label: "Blog", href: site.blogUrl },
+    ],
+    github: profile.github,
+  }
+}

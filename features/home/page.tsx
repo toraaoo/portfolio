@@ -22,10 +22,16 @@ import {
 } from "@/features/home/components"
 import { ProjectCard, ProjectRow } from "@/features/work/components"
 import { PostRow } from "@/features/writing/components"
-import { posts, profile, projects } from "@/lib/content"
+import { loadPosts, loadProfile, loadProjects } from "@/lib/content"
 import { routes } from "@/lib/routes"
 
-function HomePage() {
+async function HomePage() {
+  const [profile, projects, posts] = await Promise.all([
+    loadProfile(),
+    loadProjects(),
+    loadPosts(3),
+  ])
+
   const featured = projects.filter((project) => project.featured)
   const rest = projects.filter((project) => !project.featured).slice(0, 4)
 
@@ -62,7 +68,7 @@ function HomePage() {
               </ButtonLink>
             </RevealItem>
             <RevealItem className="mt-14">
-              <HeroStats />
+              <HeroStats profile={profile} projects={projects} />
             </RevealItem>
           </RevealGroup>
         </Container>
@@ -110,7 +116,7 @@ function HomePage() {
             description="What I reach for. The list is short on purpose — depth beats breadth."
             action={{ label: "More about me", href: routes.about }}
           >
-            <ToolboxGrid />
+            <ToolboxGrid groups={profile.toolbox} />
           </SplitSection>
         </Container>
       </Section>
@@ -129,7 +135,7 @@ function HomePage() {
           >
             <RevealGroup>
               <ItemGroup className="gap-0">
-                {posts.slice(0, 3).map((post) => (
+                {posts.map((post) => (
                   <RevealItem key={post.slug}>
                     <PostRow post={post} />
                   </RevealItem>
@@ -139,7 +145,7 @@ function HomePage() {
           </SplitSection>
 
           <Reveal className="mt-16">
-            <ContactBand />
+            <ContactBand profile={profile} />
           </Reveal>
         </Container>
       </Section>

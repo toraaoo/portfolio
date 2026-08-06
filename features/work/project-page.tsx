@@ -122,21 +122,27 @@ function ProjectPage({ project, next }: { project: Project; next: Project }) {
               ))}
 
               <CodeBlock
-                code={project.code.source}
-                caption={project.code.caption}
+                code={project.codeSource}
+                caption={project.codeCaption}
               />
             </Prose>
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href={project.links.source} external>
-                <GithubLogoIcon data-icon="inline-start" />
-                Source
-              </ButtonLink>
-              <ButtonLink href={project.links.live} external variant="outline">
-                Live
-                <ArrowSquareOutIcon data-icon="inline-end" />
-              </ButtonLink>
-            </div>
+            {project.sourceUrl || project.liveUrl ? (
+              <div className="mt-8 flex flex-wrap gap-3">
+                {project.sourceUrl ? (
+                  <ButtonLink href={project.sourceUrl} external>
+                    <GithubLogoIcon data-icon="inline-start" />
+                    Source
+                  </ButtonLink>
+                ) : null}
+                {project.liveUrl ? (
+                  <ButtonLink href={project.liveUrl} external variant="outline">
+                    Live
+                    <ArrowSquareOutIcon data-icon="inline-end" />
+                  </ButtonLink>
+                ) : null}
+              </div>
+            ) : null}
           </Reveal>
 
           <Reveal className="max-lg:hidden">

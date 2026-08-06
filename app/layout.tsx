@@ -11,9 +11,8 @@ import { ButtonLink } from "@workspace/ui/components/button-link"
 import { MotionProvider } from "@workspace/ui/components/motion/motion-provider"
 import { ThemeProvider } from "@workspace/ui/components/theme-provider"
 import { cn } from "@workspace/ui/lib/utils"
-import { profile } from "@/lib/content"
 import { navItems } from "@/lib/routes"
-import { elsewhere, identity } from "@/lib/site-identity"
+import { loadIdentity } from "@/lib/site-identity"
 
 const fontSans = Space_Grotesk({
   subsets: ["latin"],
@@ -25,19 +24,25 @@ const fontMono = JetBrains_Mono({
   variable: "--font-mono",
 })
 
-export const metadata: Metadata = {
-  title: {
-    default: `${profile.name} — ${profile.role}`,
-    template: `%s — ${profile.name}`,
-  },
-  description: profile.tagline,
+export async function generateMetadata(): Promise<Metadata> {
+  const { identity } = await loadIdentity()
+
+  return {
+    title: {
+      default: identity.name,
+      template: `%s — ${identity.name}`,
+    },
+    description: identity.tagline,
+  }
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const { identity, elsewhere, github } = await loadIdentity()
+
   return (
     <html
       lang="en"
@@ -57,7 +62,7 @@ export default function RootLayout({
                 navItems={navItems}
                 actions={
                   <ButtonLink
-                    href={`https://${profile.github}`}
+                    href={`https://${github}`}
                     external
                     size="sm"
                     className="ml-2"

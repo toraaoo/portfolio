@@ -2,11 +2,7 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 
 import { ProjectPage } from "@/features/work/project-page"
-import { getProject, projects } from "@/lib/content"
-
-export function generateStaticParams() {
-  return projects.map((project) => ({ slug: project.slug }))
-}
+import { loadProjects } from "@/lib/content"
 
 export async function generateMetadata({
   params,
@@ -14,7 +10,8 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>
 }): Promise<Metadata> {
   const { slug } = await params
-  const project = getProject(slug)
+  const projects = await loadProjects()
+  const project = projects.find((item) => item.slug === slug)
 
   return {
     title: project?.name,
@@ -28,6 +25,7 @@ export default async function Page({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
+  const projects = await loadProjects()
   const index = projects.findIndex((item) => item.slug === slug)
   const project = projects[index]
   const next = projects[(index + 1) % projects.length]

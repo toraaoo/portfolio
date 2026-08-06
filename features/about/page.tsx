@@ -26,9 +26,11 @@ import { Section } from "@workspace/ui/components/section"
 import { SplitSection } from "@workspace/ui/components/split-section"
 import { StackTags } from "@workspace/ui/components/stack-tags"
 
-import { experience, profile, toolbox } from "@/lib/content"
+import { loadProfile } from "@/lib/content"
 
-function AboutPage() {
+async function AboutPage() {
+  const profile = await loadProfile()
+
   return (
     <div>
       <Section className="pt-16 pb-16">
@@ -84,7 +86,7 @@ function AboutPage() {
             description="What I reach for. The list is short on purpose — depth beats breadth."
           >
             <div className="grid gap-7 sm:grid-cols-2">
-              {toolbox.map((group) => (
+              {profile.toolbox.map((group) => (
                 <div key={group.label}>
                   <Kicker className="mb-3">{group.label}</Kicker>
                   <StackTags items={group.items} animated />
@@ -104,11 +106,11 @@ function AboutPage() {
           >
             <ScrollRail>
               <ItemGroup className="gap-0 pl-7">
-                {experience.map((entry) => (
+                {profile.experience.map((entry) => (
                   <Reveal key={entry.org}>
                     <Item className="group items-start gap-5 rounded-none px-0 py-5">
                       <ItemMedia className="w-28 shrink-0 pt-0.5 font-mono text-sm text-muted-foreground transition-colors group-hover:text-foreground">
-                        {entry.when}
+                        {entry.period}
                       </ItemMedia>
                       <ItemContent className="gap-1.5">
                         <div className="flex flex-wrap items-baseline gap-2">

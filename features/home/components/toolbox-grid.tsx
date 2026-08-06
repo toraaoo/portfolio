@@ -2,12 +2,12 @@ import { Kicker } from "@workspace/ui/components/kicker"
 import { RevealGroup, RevealItem } from "@workspace/ui/components/motion/reveal"
 import { StackTags } from "@workspace/ui/components/stack-tags"
 
-import { toolbox } from "@/lib/content"
+import type { ToolboxGroup } from "@/lib/content"
 
-function ToolboxGrid() {
+function ToolboxGrid({ groups }: { groups: ToolboxGroup[] }) {
   return (
     <RevealGroup className="grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2">
-      {toolbox.map((group) => (
+      {groups.map((group) => (
         <RevealItem
           key={group.label}
           className="bg-card p-6 transition-colors hover:bg-accent"

@@ -8,10 +8,10 @@ import { Card, CardContent } from "@workspace/ui/components/card"
 import { Kicker } from "@workspace/ui/components/kicker"
 import { Spotlight } from "@workspace/ui/components/motion/spotlight"
 
-import { profile } from "@/lib/content"
+import type { Profile } from "@/lib/content"
 import { routes } from "@/lib/routes"
 
-function ContactBand() {
+function ContactBand({ profile }: { profile: Profile }) {
   return (
     <Card className="relative isolate overflow-hidden [--card-spacing:--spacing(7)]">
       <Spotlight size={420} />
