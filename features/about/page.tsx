@@ -96,7 +96,7 @@ function AboutPage() {
             <ScrollRail>
               <ItemGroup className="gap-0 pl-7">
                 {profile.experience.map((entry) => (
-                  <Reveal key={entry.org}>
+                  <Reveal key={`${entry.org}-${entry.role}-${entry.period}`}>
                     <Item className="group items-start gap-5 rounded-none px-0 py-5">
                       <ItemMedia className="w-28 shrink-0 pt-0.5 font-mono text-sm text-muted-foreground transition-colors group-hover:text-foreground">
                         {entry.period}
