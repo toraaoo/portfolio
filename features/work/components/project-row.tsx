@@ -17,7 +17,7 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
   return (
     <Item
       render={<Link href={routes.project(project.slug)} />}
-      className="group relative gap-4 rounded-none px-5 py-4 transition-colors hover:bg-accent"
+      className="group relative flex-nowrap items-start gap-4 rounded-none px-5 py-4 transition-colors hover:bg-accent sm:items-center"
     >
       <span
         aria-hidden
@@ -29,13 +29,15 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
         </span>
         <ArrowRightIcon className="absolute size-4 -translate-x-1 text-foreground opacity-0 transition-all duration-200 ease-out group-hover:translate-x-0 group-hover:opacity-100" />
       </ItemMedia>
-      <ItemContent className="flex-row flex-wrap items-baseline gap-x-3 gap-y-1">
+      <ItemContent className="min-w-0 gap-1 sm:flex-row sm:items-baseline sm:gap-x-3">
         <ItemTitle className="font-heading text-md font-semibold transition-transform duration-200 ease-out group-hover:translate-x-0.5">
           {project.name}
         </ItemTitle>
-        <ItemDescription className="truncate">{project.blurb}</ItemDescription>
+        <ItemDescription className="sm:truncate">
+          {project.blurb}
+        </ItemDescription>
       </ItemContent>
-      <ItemActions className="gap-3">
+      <ItemActions className="shrink-0 gap-3">
         <StackTags
           items={project.stack.slice(0, 2)}
           className="max-sm:hidden"
