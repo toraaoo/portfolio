@@ -79,6 +79,14 @@ export const maskGroup: Variants = {
   show: { transition: { staggerChildren: 0.035 } },
 }
 
+export const ruleDraw: Variants = {
+  hidden: { scaleX: 0 },
+  show: {
+    scaleX: 1,
+    transition: { duration: duration.ambient, ease: EASE_OUT },
+  },
+}
+
 export const railGrow: Variants = {
   hidden: { scaleY: 0 },
   show: {

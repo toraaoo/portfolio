@@ -2,6 +2,7 @@ import { ArrowRightIcon } from "@phosphor-icons/react/ssr"
 import type * as React from "react"
 import { ButtonLink } from "@/components/button-link"
 import { Kicker } from "@/components/kicker"
+import { DrawnRule } from "@/components/motion/drawn-rule"
 import { Reveal } from "@/components/motion/reveal"
 import { cn } from "@/lib/utils"
 
@@ -27,12 +28,18 @@ function SplitSection({
         className
       )}
     >
-      <Reveal className="lg:sticky lg:top-24 lg:self-start">
+      <Reveal className="relative isolate lg:sticky lg:top-24 lg:self-start">
+        <span
+          aria-hidden
+          className="pointer-events-none absolute -top-6 -left-1 -z-10 font-heading text-[5rem] sm:-top-10 sm:-left-1.5 sm:text-[7.5rem] leading-none font-semibold tracking-tighter text-foreground/[0.045] select-none"
+        >
+          {index}
+        </span>
         <div className="flex items-center gap-3">
-          <Kicker>{index}</Kicker>
-          <span aria-hidden className="h-px flex-1 bg-border lg:hidden" />
+          <Kicker className="text-brand">{index}</Kicker>
+          <DrawnRule className="flex-1" />
         </div>
-        <h2 className="mt-3 font-heading text-xl font-semibold tracking-tight text-balance">
+        <h2 className="mt-3 font-heading text-2xl font-semibold tracking-tight text-balance">
           {title}
         </h2>
         {description ? (
