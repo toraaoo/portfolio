@@ -1,8 +1,8 @@
-import { Container } from "@workspace/ui/components/container"
-import { Kicker } from "@workspace/ui/components/kicker"
-import { MaskText } from "@workspace/ui/components/motion/mask-text"
-import { RevealGroup, RevealItem } from "@workspace/ui/components/motion/reveal"
-import { Typewriter } from "@workspace/ui/components/motion/typewriter"
+import { Container } from "@/components/container"
+import { Kicker } from "@/components/kicker"
+import { MaskText } from "@/components/motion/mask-text"
+import { RevealGroup, RevealItem } from "@/components/motion/reveal"
+import { Typewriter } from "@/components/motion/typewriter"
 
 import { ProjectGallery } from "@/features/work/components"
 import { loadProfile, loadProjects } from "@/lib/content"

@@ -1,0 +1,16 @@
+import type * as React from "react"
+import { cn } from "@/lib/utils"
+
+function Kicker({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      className={cn(
+        "font-mono text-xs font-medium tracking-widest text-muted-foreground uppercase",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+export { Kicker }

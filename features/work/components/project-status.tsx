@@ -1,5 +1,5 @@
-import type { StatusTone } from "@workspace/ui/components/status-badge"
-import { StatusBadge } from "@workspace/ui/components/status-badge"
+import type { StatusTone } from "@/components/status-badge"
+import { StatusBadge } from "@/components/status-badge"
 
 import type { ProjectStatus } from "@/lib/content"
 import { STATUS_LABELS } from "@/lib/content"

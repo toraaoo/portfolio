@@ -1,8 +1,8 @@
 "use client"
 
 import { CaretDownIcon } from "@phosphor-icons/react"
-import { EASE_IN_OUT } from "@workspace/ui/lib/motion"
 import { motion, useReducedMotion } from "motion/react"
+import { EASE_IN_OUT } from "@/lib/motion"
 
 function ScrollCue({ label }: { label: string }) {
   const reduced = useReducedMotion()

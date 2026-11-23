@@ -1,11 +1,10 @@
+import { api } from "@/lib/api"
 import type {
   PostSummary,
   Profile,
   Project,
   ProjectStatus,
-} from "@workspace/api-client"
-
-import { api } from "@/lib/api"
+} from "@/lib/api/types"
 
 export type {
   ExperienceEntry,
@@ -14,7 +13,7 @@ export type {
   Project,
   ProjectStatus,
   ToolboxGroup,
-} from "@workspace/api-client"
+} from "@/lib/api/types"
 
 export const STATUS_LABELS: Record<ProjectStatus, string> = {
   shipped: "Shipped",

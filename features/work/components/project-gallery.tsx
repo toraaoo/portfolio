@@ -1,23 +1,19 @@
 "use client"
 
+import { AnimatePresence, motion } from "motion/react"
+import * as React from "react"
 import {
   Empty,
   EmptyDescription,
   EmptyHeader,
   EmptyTitle,
-} from "@workspace/ui/components/empty"
-import { Separator } from "@workspace/ui/components/separator"
-import {
-  ToggleGroup,
-  ToggleGroupItem,
-} from "@workspace/ui/components/toggle-group"
-import { fadeUp, layoutMorph } from "@workspace/ui/lib/motion"
-import { AnimatePresence, motion } from "motion/react"
-import * as React from "react"
-
+} from "@/components/empty"
+import { Separator } from "@/components/separator"
+import { ToggleGroup, ToggleGroupItem } from "@/components/toggle-group"
 import { ProjectCard } from "@/features/work/components/project-card"
 import { filterByStack, stacksOf } from "@/features/work/lib/stacks"
 import type { Project } from "@/lib/content"
+import { fadeUp, layoutMorph } from "@/lib/motion"
 
 const ALL = "all"
 

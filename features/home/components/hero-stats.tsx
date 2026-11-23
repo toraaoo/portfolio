@@ -1,6 +1,6 @@
-import { Kicker } from "@workspace/ui/components/kicker"
-import { CountUp } from "@workspace/ui/components/motion/count-up"
-import { RevealGroup, RevealItem } from "@workspace/ui/components/motion/reveal"
+import { Kicker } from "@/components/kicker"
+import { CountUp } from "@/components/motion/count-up"
+import { RevealGroup, RevealItem } from "@/components/motion/reveal"
 
 import { LocalTime } from "@/features/home/components/local-time"
 import type { Profile, Project } from "@/lib/content"

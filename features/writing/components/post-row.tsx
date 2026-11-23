@@ -1,5 +1,5 @@
 import { ArrowUpRightIcon } from "@phosphor-icons/react/ssr"
-import { Badge } from "@workspace/ui/components/badge"
+import { Badge } from "@/components/badge"
 import {
   Item,
   ItemActions,
@@ -7,8 +7,8 @@ import {
   ItemDescription,
   ItemHeader,
   ItemTitle,
-} from "@workspace/ui/components/item"
-import { ledgerDate } from "@workspace/ui/lib/console"
+} from "@/components/item"
+import { ledgerDate } from "@/lib/console"
 
 import type { PostSummary } from "@/lib/content"
 import { blogPostUrl } from "@/lib/site"

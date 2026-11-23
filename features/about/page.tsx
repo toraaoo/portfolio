@@ -2,9 +2,9 @@ import {
   DownloadSimpleIcon,
   EnvelopeSimpleIcon,
 } from "@phosphor-icons/react/ssr"
-import { Avatar, AvatarFallback } from "@workspace/ui/components/avatar"
-import { ButtonLink } from "@workspace/ui/components/button-link"
-import { Container } from "@workspace/ui/components/container"
+import { Avatar, AvatarFallback } from "@/components/avatar"
+import { ButtonLink } from "@/components/button-link"
+import { Container } from "@/components/container"
 import {
   Item,
   ItemContent,
@@ -12,19 +12,15 @@ import {
   ItemGroup,
   ItemMedia,
   ItemTitle,
-} from "@workspace/ui/components/item"
-import { Kicker } from "@workspace/ui/components/kicker"
-import { MaskText } from "@workspace/ui/components/motion/mask-text"
-import {
-  Reveal,
-  RevealGroup,
-  RevealItem,
-} from "@workspace/ui/components/motion/reveal"
-import { ScrollRail } from "@workspace/ui/components/motion/scroll-rail"
-import { Typewriter } from "@workspace/ui/components/motion/typewriter"
-import { Section } from "@workspace/ui/components/section"
-import { SplitSection } from "@workspace/ui/components/split-section"
-import { StackTags } from "@workspace/ui/components/stack-tags"
+} from "@/components/item"
+import { Kicker } from "@/components/kicker"
+import { MaskText } from "@/components/motion/mask-text"
+import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal"
+import { ScrollRail } from "@/components/motion/scroll-rail"
+import { Typewriter } from "@/components/motion/typewriter"
+import { Section } from "@/components/section"
+import { SplitSection } from "@/components/split-section"
+import { StackTags } from "@/components/stack-tags"
 
 import { loadProfile } from "@/lib/content"
 

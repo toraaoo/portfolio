@@ -3,10 +3,10 @@ import {
   EnvelopeSimpleIcon,
   GithubLogoIcon,
 } from "@phosphor-icons/react/ssr"
-import { ButtonLink } from "@workspace/ui/components/button-link"
-import { Card, CardContent } from "@workspace/ui/components/card"
-import { Kicker } from "@workspace/ui/components/kicker"
-import { Spotlight } from "@workspace/ui/components/motion/spotlight"
+import { ButtonLink } from "@/components/button-link"
+import { Card, CardContent } from "@/components/card"
+import { Kicker } from "@/components/kicker"
+import { Spotlight } from "@/components/motion/spotlight"
 
 import type { Profile } from "@/lib/content"
 import { routes } from "@/lib/routes"

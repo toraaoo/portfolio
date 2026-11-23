@@ -4,33 +4,25 @@ import {
   ArrowSquareOutIcon,
   GithubLogoIcon,
 } from "@phosphor-icons/react/ssr"
-import { ButtonLink } from "@workspace/ui/components/button-link"
-import { CodeBlock } from "@workspace/ui/components/code-block"
-import { Container } from "@workspace/ui/components/container"
+import Link from "next/link"
+import { ButtonLink } from "@/components/button-link"
+import { CodeBlock } from "@/components/code-block"
+import { Container } from "@/components/container"
 import {
   Item,
   ItemActions,
   ItemContent,
   ItemDescription,
   ItemTitle,
-} from "@workspace/ui/components/item"
-import { Kicker } from "@workspace/ui/components/kicker"
-import { MaskText } from "@workspace/ui/components/motion/mask-text"
-import {
-  Reveal,
-  RevealGroup,
-  RevealItem,
-} from "@workspace/ui/components/motion/reveal"
-import { Spotlight } from "@workspace/ui/components/motion/spotlight"
-import {
-  Prose,
-  ProseHeading,
-  ProseParagraph,
-} from "@workspace/ui/components/prose"
-import { ProseToc } from "@workspace/ui/components/prose-toc"
-import { SpecGrid } from "@workspace/ui/components/spec-grid"
-import { VisualSlot } from "@workspace/ui/components/visual-slot"
-import Link from "next/link"
+} from "@/components/item"
+import { Kicker } from "@/components/kicker"
+import { MaskText } from "@/components/motion/mask-text"
+import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal"
+import { Spotlight } from "@/components/motion/spotlight"
+import { Prose, ProseHeading, ProseParagraph } from "@/components/prose"
+import { ProseToc } from "@/components/prose-toc"
+import { SpecGrid } from "@/components/spec-grid"
+import { VisualSlot } from "@/components/visual-slot"
 
 import { ProjectStatusBadge } from "@/features/work/components"
 import type { Project } from "@/lib/content"

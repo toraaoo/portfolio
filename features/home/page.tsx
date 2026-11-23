@@ -1,18 +1,14 @@
 import { ArrowRightIcon, FileTextIcon } from "@phosphor-icons/react/ssr"
-import { ButtonLink } from "@workspace/ui/components/button-link"
-import { Container } from "@workspace/ui/components/container"
-import { ItemGroup } from "@workspace/ui/components/item"
-import { Kicker } from "@workspace/ui/components/kicker"
-import { AmbientGrid } from "@workspace/ui/components/motion/ambient-grid"
-import { MaskText } from "@workspace/ui/components/motion/mask-text"
-import {
-  Reveal,
-  RevealGroup,
-  RevealItem,
-} from "@workspace/ui/components/motion/reveal"
-import { Typewriter } from "@workspace/ui/components/motion/typewriter"
-import { Section } from "@workspace/ui/components/section"
-import { SplitSection } from "@workspace/ui/components/split-section"
+import { ButtonLink } from "@/components/button-link"
+import { Container } from "@/components/container"
+import { ItemGroup } from "@/components/item"
+import { Kicker } from "@/components/kicker"
+import { AmbientGrid } from "@/components/motion/ambient-grid"
+import { MaskText } from "@/components/motion/mask-text"
+import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal"
+import { Typewriter } from "@/components/motion/typewriter"
+import { Section } from "@/components/section"
+import { SplitSection } from "@/components/split-section"
 
 import {
   ContactBand,

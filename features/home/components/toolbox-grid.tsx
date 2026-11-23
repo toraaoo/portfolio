@@ -1,6 +1,6 @@
-import { Kicker } from "@workspace/ui/components/kicker"
-import { RevealGroup, RevealItem } from "@workspace/ui/components/motion/reveal"
-import { StackTags } from "@workspace/ui/components/stack-tags"
+import { Kicker } from "@/components/kicker"
+import { RevealGroup, RevealItem } from "@/components/motion/reveal"
+import { StackTags } from "@/components/stack-tags"
 
 import type { ToolboxGroup } from "@/lib/content"
 

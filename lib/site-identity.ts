@@ -1,7 +1,6 @@
-import type { SiteIdentity, SiteLink } from "@workspace/ui/lib/site"
-
 import { loadProfile } from "@/lib/content"
 import { routes } from "@/lib/routes"
+import type { SiteIdentity, SiteLink } from "@/lib/site"
 import { site } from "@/lib/site"
 
 export async function loadIdentity(): Promise<{

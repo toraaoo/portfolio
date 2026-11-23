@@ -1,4 +1,5 @@
 import { ArrowRightIcon } from "@phosphor-icons/react/ssr"
+import Link from "next/link"
 import {
   Item,
   ItemActions,
@@ -6,9 +7,8 @@ import {
   ItemDescription,
   ItemMedia,
   ItemTitle,
-} from "@workspace/ui/components/item"
-import { StackTags } from "@workspace/ui/components/stack-tags"
-import Link from "next/link"
+} from "@/components/item"
+import { StackTags } from "@/components/stack-tags"
 
 import type { Project } from "@/lib/content"
 import { routes } from "@/lib/routes"

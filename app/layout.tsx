@@ -1,18 +1,18 @@
 import type { Metadata } from "next"
 import { JetBrains_Mono, Space_Grotesk } from "next/font/google"
 
-import "@workspace/ui/globals.css"
+import "./globals.css"
 
 import { GithubLogoIcon } from "@phosphor-icons/react/ssr"
-import { RouteTransition } from "@workspace/ui/components/app-shell/route-transition"
-import { SiteFooter } from "@workspace/ui/components/app-shell/site-footer"
-import { SiteHeader } from "@workspace/ui/components/app-shell/site-header"
-import { ButtonLink } from "@workspace/ui/components/button-link"
-import { MotionProvider } from "@workspace/ui/components/motion/motion-provider"
-import { ThemeProvider } from "@workspace/ui/components/theme-provider"
-import { cn } from "@workspace/ui/lib/utils"
+import { RouteTransition } from "@/components/app-shell/route-transition"
+import { SiteFooter } from "@/components/app-shell/site-footer"
+import { SiteHeader } from "@/components/app-shell/site-header"
+import { ButtonLink } from "@/components/button-link"
+import { MotionProvider } from "@/components/motion/motion-provider"
+import { ThemeProvider } from "@/components/theme-provider"
 import { navItems } from "@/lib/routes"
 import { loadIdentity } from "@/lib/site-identity"
+import { cn } from "@/lib/utils"
 
 const fontSans = Space_Grotesk({
   subsets: ["latin"],

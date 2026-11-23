@@ -1,4 +1,5 @@
 import { ArrowUpRightIcon } from "@phosphor-icons/react/ssr"
+import Link from "next/link"
 import {
   Card,
   CardAction,
@@ -6,15 +7,13 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@workspace/ui/components/card"
-import { Spotlight } from "@workspace/ui/components/motion/spotlight"
-import { StackTags } from "@workspace/ui/components/stack-tags"
-import { cn } from "@workspace/ui/lib/utils"
-import Link from "next/link"
-
+} from "@/components/card"
+import { Spotlight } from "@/components/motion/spotlight"
+import { StackTags } from "@/components/stack-tags"
 import { ProjectStatusBadge } from "@/features/work/components/project-status"
 import type { Project } from "@/lib/content"
 import { routes } from "@/lib/routes"
+import { cn } from "@/lib/utils"
 
 function ProjectCard({
   project,
