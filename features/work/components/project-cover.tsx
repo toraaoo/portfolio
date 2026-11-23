@@ -10,10 +10,6 @@ const CONTOUR_OPTIONS = {
   scale: 0.055,
 } as const
 
-/**
- * Project artwork: the project's own `image` when set, otherwise contour
- * lines generated from `seed`. Hover motion follows the nearest `group`.
- */
 function ProjectCover({
   seed,
   image,

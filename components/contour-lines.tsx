@@ -10,10 +10,6 @@ const DEFAULTS: ContourOptions = {
   scale: 0.07,
 }
 
-/**
- * Decorative topographic lines. Colours come from the `--contour` and
- * `--contour-index` CSS variables so callers can retint them per surface.
- */
 function ContourLines({
   seed,
   options,

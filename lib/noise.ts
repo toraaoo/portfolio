@@ -1,4 +1,3 @@
-/** Hashes a string to a 32-bit integer seed. */
 export function hashSeed(seed: string): number {
   let hash = 2166136261
   for (let index = 0; index < seed.length; index++) {
@@ -31,10 +30,8 @@ function valueNoise(seed: number, x: number, y: number): number {
   return top * (1 - ty) + bottom * ty
 }
 
-/** Upper bound of {@link fractalNoise}; its lower bound is 0. */
 export const FRACTAL_NOISE_MAX = 0.6 + 0.6 * 0.35 + 0.6 * 0.35 * 0.35
 
-/** Smooth, deterministic 2D value noise with three octaves. */
 export function fractalNoise(seed: number, x: number, y: number): number {
   let total = 0
   let amplitude = 0.6

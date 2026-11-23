@@ -7,14 +7,12 @@ import { layoutMorph } from "@/lib/motion"
 
 const ALL = "all"
 
-/** A status filter option, with how many items it matches. */
 export type FilterOption = {
   readonly value: string
   readonly label: string
   readonly count: number
 }
 
-/** A prerendered item and the status it is filtered by. */
 export type FilterItem = {
   readonly key: string
   readonly status: string

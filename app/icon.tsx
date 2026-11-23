@@ -5,7 +5,6 @@ import { Logomark } from "@/components/app-shell/logomark"
 export const size = { width: 32, height: 32 }
 export const contentType = "image/png"
 
-// ImageResponse cannot read CSS custom properties; these mirror --paper-raised and --ink-950 in globals.css.
 const background = "#ffffff"
 const foreground = "#0a0a0b"
 

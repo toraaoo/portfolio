@@ -37,15 +37,6 @@ type Pointer = {
   targetStrength: number
 }
 
-/**
- * Canvas of slowly morphing contour lines that rise around the mouse cursor,
- * sized to its parent. Line colours follow the `--contour` and
- * `--contour-index` CSS variables.
- *
- * Built to stay light: one reused field buffer, no per-frame allocations,
- * 30 fps cap, 1× backing store, and paused while off-screen or hidden.
- * Draws a single static frame when the user prefers reduced motion.
- */
 function ContourField({
   seed,
   className,

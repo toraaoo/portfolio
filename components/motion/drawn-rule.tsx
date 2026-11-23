@@ -4,7 +4,6 @@ import { motion } from "motion/react"
 import { ruleDraw, viewportOnce } from "@/lib/motion"
 import { cn } from "@/lib/utils"
 
-/** A hairline that draws in from the left on scroll, led by an accent tick. */
 function DrawnRule({ className }: { className?: string }) {
   return (
     <motion.span

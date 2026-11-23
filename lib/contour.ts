@@ -3,20 +3,17 @@ import { fractalNoise, hashSeed } from "@/lib/noise"
 type Point = readonly [number, number]
 type Segment = readonly [Point, Point]
 
-/** Scalar values sampled on a `(columns + 1) × (rows + 1)` grid. */
 export type Field = {
   readonly columns: number
   readonly rows: number
   readonly values: Float64Array
 }
 
-/** One iso-line level of a contour field, as an SVG path. */
 export type ContourLine = {
   readonly d: string
   readonly emphasized: boolean
 }
 
-/** Shape of a generated field. Coordinates are in a `width` × `height` box. */
 export type ContourOptions = {
   readonly width: number
   readonly height: number
@@ -51,12 +48,10 @@ const CELL_EDGES: readonly (readonly (readonly [number, number])[])[] = [
   [],
 ]
 
-/** Allocates a zeroed field; reuse it across frames with {@link fillField}. */
 export function createField(columns: number, rows: number): Field {
   return { columns, rows, values: new Float64Array((columns + 1) * (rows + 1)) }
 }
 
-/** Overwrites every grid point of `field` with `sample(column, row)`. */
 export function fillField(
   field: Field,
   sample: (column: number, row: number) => number
@@ -77,11 +72,6 @@ function crossing(from: number, to: number, level: number): number {
   return (level - from) / (to - from)
 }
 
-/**
- * Marching squares: calls `visit` with the endpoints of each line segment
- * where `field` crosses `level`, in grid units. Allocates nothing per
- * segment, so it is safe to run every animation frame.
- */
 export function forEachSegment(
   field: Field,
   level: number,
@@ -120,7 +110,6 @@ export function forEachSegment(
   }
 }
 
-/** `count` evenly spaced levels strictly between `low` and `high`. */
 export function contourLevels(
   count: number,
   low: number,
@@ -174,10 +163,6 @@ function chainSegments(segments: readonly Segment[]): string {
     .join("")
 }
 
-/**
- * Generates static topographic contour lines seeded by `seed`, as SVG paths
- * joined into polylines. The same seed always yields the same lines.
- */
 export function contourLines(
   seed: string,
   options: ContourOptions

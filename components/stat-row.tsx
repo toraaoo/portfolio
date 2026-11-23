@@ -3,7 +3,6 @@ import { Kicker } from "@/components/kicker"
 import { CountUp } from "@/components/motion/count-up"
 import { Separator } from "@/components/separator"
 
-/** A labelled number shown in a stats row. */
 export type Stat = {
   readonly label: string
   readonly value: number
