@@ -13,9 +13,10 @@
     "Outside client work I ship open-source software: a Minecraft launcher and server manager written in Rust, a planning tool for AI coding agents, and indie games in Godot. I studied Computer Science at Cavite State University, and my teams placed first runner-up at HackForGov 2 and fourth at HackForGov 3."
   ],
   "location": "Cavite, Philippines",
-  "timeZone": "Asia/Manila",
   "timeZoneLabel": "UTC+8",
   "years": "4+ years",
+  "coreStack": ["Python", "TypeScript", "AWS"],
+  "openTo": "Full-time roles",
   "email": "lawrenceallen.tech@gmail.com",
   "github": "https://github.com/toraaoo",
   "toolbox": [

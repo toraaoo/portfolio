@@ -58,7 +58,7 @@ function HomePage() {
               </ButtonLink>
             </RevealItem>
             <RevealItem className="mt-14">
-              <HeroStats profile={profile} projects={projects} />
+              <HeroStats profile={profile} />
             </RevealItem>
           </RevealGroup>
         </Container>

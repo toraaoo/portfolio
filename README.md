@@ -13,11 +13,11 @@ bun run dev
 
 ## Content
 
-| File                    | What it holds                                                      |
-| ----------------------- | ------------------------------------------------------------------ |
-| `content/profile.json`  | Name, headline, bio, contact, location, toolbox, experience        |
-| `content/projects.json` | Projects, in display order                                         |
-| `content/pages.json`    | Section titles and descriptions for the home, work and about pages |
+| File                    | What it holds                                                           |
+| ----------------------- | ----------------------------------------------------------------------- |
+| `content/profile.json`  | Name, headline, bio, contact, location, core stack, toolbox, experience |
+| `content/projects.json` | Projects, in display order                                              |
+| `content/pages.json`    | Section titles and descriptions for the home, work and about pages      |
 
 - **Add a project**: append an object to `projects`. `slug` (lowercase-kebab-case,
   unique) becomes the URL `/work/<slug>`.
@@ -27,8 +27,9 @@ bun run dev
 - `status` is one of `shipped`, `wip`, `open_source`, `archived`.
 - Optional project fields: `featured` (default `false`), `sections`
   (default `[]`), `sourceUrl`, `liveUrl`.
-- `timeZone` is an IANA name (e.g. `Asia/Manila`) used for the live clock;
-  `timeZoneLabel` is the text shown beside it.
+- `timeZoneLabel` (e.g. `UTC+8`) is shown beside `location` in the footer.
+- `openTo` (optional, e.g. `Full-time roles`) fills the last hero stat; without
+  it the stat shows `role` under "Currently".
 
 Each file points at a JSON Schema in `content/schemas/` through `$schema`, so
 editors autocomplete and flag mistakes as you type. The same rules are enforced
