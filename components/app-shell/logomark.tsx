@@ -1,6 +1,8 @@
+import type { ComponentProps } from "react"
+
 import { cn } from "@/lib/utils"
 
-function Logomark({ className }: { className?: string }) {
+function Logomark({ className, ...props }: ComponentProps<"svg">) {
   return (
     <svg
       viewBox="0 0 64 64"
@@ -8,6 +10,7 @@ function Logomark({ className }: { className?: string }) {
       role="presentation"
       aria-hidden="true"
       className={cn("size-7", className)}
+      {...props}
     >
       <rect
         x="1.5"
