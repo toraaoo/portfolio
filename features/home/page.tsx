@@ -36,7 +36,7 @@ function HomePage() {
                 <Typewriter text={`${profile.role} · ${profile.location}`} />
               </Kicker>
             </RevealItem>
-            <h1 className="max-w-225 font-heading text-4xl leading-none font-medium tracking-tighter text-balance lg:text-5xl">
+            <h1 className="max-w-225 font-heading text-3xl leading-none font-medium tracking-tighter text-balance sm:text-4xl lg:text-5xl">
               <MaskText text={profile.headline} delay={0.15} />
             </h1>
             <RevealItem>
