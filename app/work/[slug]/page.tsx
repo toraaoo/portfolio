@@ -1,8 +1,12 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 
+import { JsonLd } from "@/components/json-ld"
 import { ProjectPage } from "@/features/work/project-page"
 import { projects } from "@/lib/content"
+import { pageMetadata } from "@/lib/metadata"
+import { routes } from "@/lib/routes"
+import { projectJsonLd } from "@/lib/structured-data"
 
 export const dynamicParams = false
 
@@ -18,10 +22,15 @@ export async function generateMetadata({
   const { slug } = await params
   const project = projects.find((item) => item.slug === slug)
 
-  return {
-    title: project?.name,
-    description: project?.blurb,
+  if (!project) {
+    return {}
   }
+
+  return pageMetadata({
+    title: project.name,
+    description: project.blurb,
+    path: routes.project(project.slug),
+  })
 }
 
 export default async function Page({
@@ -38,5 +47,10 @@ export default async function Page({
     notFound()
   }
 
-  return <ProjectPage project={project} next={next} />
+  return (
+    <>
+      <JsonLd data={projectJsonLd(project)} />
+      <ProjectPage project={project} next={next} />
+    </>
+  )
 }

@@ -11,6 +11,18 @@ bun install
 bun run dev
 ```
 
+## SEO
+
+| What                                                         | Where                                                            |
+| ------------------------------------------------------------ | ---------------------------------------------------------------- |
+| Titles, canonicals, Open Graph, Twitter                      | `lib/metadata.ts` (`pageMetadata`)                               |
+| JSON-LD (`WebSite`, `Person`, `ProfilePage`, `CreativeWork`) | `lib/structured-data.ts`                                         |
+| Social preview images                                        | `app/opengraph-image.tsx`, `app/work/[slug]/opengraph-image.tsx` |
+| Sitemap and robots                                           | `app/sitemap.ts`, `app/robots.ts`                                |
+
+Every route builds its metadata with `pageMetadata`, so a new page gets a
+canonical URL and matching social tags. Add new routes to `app/sitemap.ts`.
+
 ## Content
 
 | File                    | What it holds                                                           |

@@ -1,4 +1,3 @@
-import type { Metadata } from "next"
 import { JetBrains_Mono, Space_Grotesk } from "next/font/google"
 
 import "./globals.css"
@@ -8,7 +7,7 @@ import { SiteFooter } from "@/components/app-shell/site-footer"
 import { SiteHeader } from "@/components/app-shell/site-header"
 import { MotionProvider } from "@/components/motion/motion-provider"
 import { ThemeProvider } from "@/components/theme-provider"
-import { profile } from "@/lib/content"
+import { siteMetadata } from "@/lib/metadata"
 import { cn } from "@/lib/utils"
 
 const fontSans = Space_Grotesk({
@@ -21,13 +20,7 @@ const fontMono = JetBrains_Mono({
   variable: "--font-mono",
 })
 
-export const metadata: Metadata = {
-  title: {
-    default: `${profile.name} — ${profile.role}`,
-    template: `%s — ${profile.name}`,
-  },
-  description: profile.tagline,
-}
+export const metadata = siteMetadata
 
 export default function RootLayout({
   children,
