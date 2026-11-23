@@ -2,52 +2,124 @@
   "$schema": "./schemas/projects.schema.json",
   "projects": [
     {
-      "slug": "project-one",
-      "name": "Project One",
-      "blurb": "One-line description shown on cards.",
-      "summary": "A short overview paragraph shown at the top of the project page.",
-      "year": "2025",
-      "status": "shipped",
-      "role": "Solo — design and build",
-      "metric": "1k weekly users",
-      "stack": ["TypeScript", "PostgreSQL"],
+      "slug": "hestia",
+      "name": "Hestia",
+      "blurb": "Minecraft launcher and server manager in Rust.",
+      "summary": "Hestia manages Minecraft instances and servers from one place. Install mods from Modrinth or CurseForge, host a server friends can join, and move either between game versions without rebuilding it. Everything the desktop app does, the command line does too.",
+      "year": "2026",
+      "status": "open_source",
+      "role": "Sole developer",
+      "metric": "Public beta",
+      "stack": ["Rust", "Tauri", "TypeScript", "React", "Three.js"],
       "featured": true,
       "sections": [
         {
-          "heading": "Problem",
-          "body": ["What was hard about it and why it mattered."]
+          "heading": "The problem",
+          "body": [
+            "Launchers usually treat servers as an afterthought and keep their features locked inside a GUI. Hestia puts instances and servers side by side and treats the terminal as a first-class interface, so the same setup can be driven from a window or a script."
+          ]
         },
         {
-          "heading": "Approach",
-          "body": ["How you solved it and the trade-offs you made."]
+          "heading": "Architecture",
+          "body": [
+            "A resident daemon owns all state. The Tauri desktop app, the system tray and the hestia CLI are thin clients over a shared IPC protocol, so a server keeps running after the window closes and every interface sees the same state.",
+            "The core is split into focused Rust crates (engine, daemon, IPC, protocol and clients), which keeps the launcher logic independent of any one interface."
+          ]
+        },
+        {
+          "heading": "Scope",
+          "body": [
+            "Instances run Vanilla, Fabric and NeoForge. Servers cover eight distributions, including Paper, Folia and Bedrock, and are fully provisioned on create: jar, Java runtime, EULA and port. Each server gets live resource charts, scheduled backups and an RCON console.",
+            "Mods, shaders, resource packs and modpacks install with dependencies resolved, and instances import from Prism, MultiMC and .mrpack. A skin library renders a real-time 3D preview with Three.js."
+          ]
+        },
+        {
+          "heading": "Shipping",
+          "body": [
+            "Releases ship as .deb, .rpm, AppImage and a Windows installer, with CI on every push and self-update from the release feed."
+          ]
         }
       ],
-      "sourceUrl": "https://github.com/yourhandle/project-one",
-      "liveUrl": "https://example.com"
+      "sourceUrl": "https://github.com/prytaneum/hestia"
     },
     {
-      "slug": "project-two",
-      "name": "Project Two",
-      "blurb": "One-line description shown on cards.",
-      "summary": "A short overview paragraph shown at the top of the project page.",
-      "year": "2024",
+      "slug": "memento-visions",
+      "name": "Memento Visions",
+      "blurb": "Top-down detective game set in Manila.",
+      "summary": "Players take the role of Alejandro Gutierrez, a detective who investigates supernatural crimes across Manila, solving puzzles and fighting creatures level by level. Built in Godot by a team of three, with me leading development.",
+      "year": "2025",
       "status": "open_source",
-      "role": "Maintainer",
-      "metric": "200 GitHub stars",
-      "stack": ["Go"],
+      "role": "Lead developer — team of 3",
+      "metric": "Team of 3",
+      "stack": ["Godot", "C#", "GDScript"],
       "featured": true,
-      "sourceUrl": "https://github.com/yourhandle/project-two"
+      "sections": [
+        {
+          "heading": "The game",
+          "body": [
+            "Each level pairs investigation with combat: players gather clues, solve environmental puzzles and fight the supernatural enemies behind each case."
+          ]
+        },
+        {
+          "heading": "Engineering",
+          "body": [
+            "Gameplay is written in C# on Godot. A shared common library holds the abstractions, models and utilities every system builds on, and custom Roslyn source generators produce entity and enemy code at compile time instead of by hand.",
+            "Sprites were drawn in Aseprite and audio edited in Audacity."
+          ]
+        }
+      ],
+      "sourceUrl": "https://github.com/toraaoo/memento-visions"
     },
     {
-      "slug": "project-three",
-      "name": "Project Three",
-      "blurb": "One-line description shown on cards.",
-      "summary": "A short overview paragraph shown at the top of the project page.",
+      "slug": "e-ubcv",
+      "name": "E-UBCV",
+      "blurb": "RAG chatbot for the University of Batangas.",
+      "summary": "An AI assistant for the University of Batangas that answers questions about the university and its core values, grounded in the institution's own documents. Users sign in, keep their conversations, and can hear each answer spoken back by a 3D avatar.",
       "year": "2024",
-      "status": "wip",
-      "role": "Lead engineer",
-      "metric": "In progress",
-      "stack": ["React", "Next.js"]
+      "status": "shipped",
+      "role": "Lead developer — freelance",
+      "metric": "Client project",
+      "stack": ["Next.js", "LangChain", "OpenAI", "PostgreSQL"],
+      "sections": [
+        {
+          "heading": "Retrieval pipeline",
+          "body": [
+            "Source PDFs are split into overlapping chunks, embedded with OpenAI embeddings and indexed in a vector store. A history-aware retriever rewrites each follow-up into a standalone question before searching, so answers stay grounded across a whole conversation.",
+            "GPT-4o mini answers only from the retrieved passages and says so when the documents don't cover a question, instead of guessing."
+          ]
+        },
+        {
+          "heading": "Product",
+          "body": [
+            "Conversations are saved per user in PostgreSQL through Prisma, each with an AI-generated title. Replies can be read aloud with OpenAI text-to-speech while a 3D avatar, built with React Three Fiber, turns to face the user. Sign-in supports Google and email through NextAuth."
+          ]
+        }
+      ],
+      "sourceUrl": "https://github.com/toraaoo/ubcv"
+    },
+    {
+      "slug": "planboard",
+      "name": "planboard",
+      "blurb": "Implementation plans as JSON in your repo.",
+      "summary": "planboard keeps implementation plans next to the code as JSON and Mermaid files, reviewed in pull requests like any other change. The same files render as a design document, a kanban board and a task dependency graph, and every edit is validated before it is written. Bundled skills let coding agents such as Claude Code, Codex and Cursor write plans and keep the board current.",
+      "year": "2026",
+      "status": "open_source",
+      "role": "Sole developer",
+      "metric": "6 coding agents",
+      "stack": ["Python", "TypeScript"],
+      "sourceUrl": "https://github.com/toraaoo/planboard"
+    },
+    {
+      "slug": "fursure",
+      "name": "Fursure",
+      "blurb": "On-device cat breed and sex prediction.",
+      "summary": "A Flutter app that runs TensorFlow Lite models on the phone to predict a cat's breed from an image and its sex from audio, with a local history of results. Models download once on first launch; after that, every prediction runs offline.",
+      "year": "2026",
+      "status": "open_source",
+      "role": "Sole developer",
+      "metric": "Offline inference",
+      "stack": ["Flutter", "Dart", "TensorFlow Lite", "SQLite"],
+      "sourceUrl": "https://github.com/toraaoo/fursure"
     }
   ]
 }

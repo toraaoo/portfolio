@@ -3,11 +3,11 @@
   "home": {
     "work": {
       "title": "Selected work",
-      "description": "A few projects I designed and built."
+      "description": "Open-source products I designed and built end to end. Most of my client and employer work is private — ask me about it."
     },
     "toolbox": {
-      "title": "Toolbox",
-      "description": "What I reach for. The list is short on purpose — depth beats breadth."
+      "title": "Stack",
+      "description": "The tools I use in production, from cloud backends to the apps that call them."
     },
     "contact": {
       "heading": "Working on something interesting? I read every mail."
@@ -15,16 +15,16 @@
   },
   "work": {
     "title": "Work",
-    "description": "Things I designed and built."
+    "description": "Open-source products and personal builds, from a Rust desktop app to a Godot game. Client and employer work isn't public, so it isn't listed here."
   },
   "about": {
     "toolbox": {
-      "title": "Toolbox",
-      "description": "What I reach for. The list is short on purpose — depth beats breadth."
+      "title": "Stack",
+      "description": "The tools I use in production, from cloud backends to the apps that call them."
     },
     "experience": {
       "title": "Experience",
-      "description": "Where I have worked and what I did there."
+      "description": "Where I've worked and what I was responsible for."
     }
   }
 }

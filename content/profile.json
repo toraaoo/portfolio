@@ -1,40 +1,85 @@
 {
   "$schema": "./schemas/profile.schema.json",
-  "name": "Your Name",
-  "initials": "YN",
-  "handle": "yourhandle",
-  "role": "Software Engineer",
-  "headline": "I build reliable systems and the tools around them.",
-  "tagline": "Software engineer building backend systems and developer tools.",
-  "intro": "A short paragraph introducing yourself: what you do, what you care about and what you are looking for.",
+  "name": "Lawrence Allen Almazan",
+  "initials": "LA",
+  "handle": "toraaoo",
+  "role": "Full-Stack AI Engineer",
+  "headline": "Full-stack engineer shipping AI from cloud to device.",
+  "tagline": "Full-stack AI engineer shipping products from cloud to device.",
+  "intro": "4+ years building serverless backends on AWS, mobile apps in React Native and Flutter, and AI features from RAG chatbots to on-device models. I make games on the side.",
   "bio": [
-    "First paragraph of your bio. Where you started and what you work on today.",
-    "Second paragraph. What you enjoy outside of work, or how you like to collaborate."
+    "I'm a full-stack AI engineer based in Cavite, Philippines. At IfElse PH I own the server side of two products: a digital wallet, and an over-the-air update platform that delivers new software to LGES battery systems. I work directly with the embedded team, so the cloud side and the hardware side are designed together rather than handed over.",
+    "Before IfElse, I built serverless Python services on AWS at PDAX, a Philippine digital asset exchange, and kept a Node.js platform running for Stream Nation's users. I also spent three years freelancing, delivering cloud backends, React Native apps and machine-learning models for companies and individual clients, including a RAG-based AI assistant for the University of Batangas.",
+    "Outside client work I ship open-source software: a Minecraft launcher and server manager written in Rust, a planning tool for AI coding agents, and indie games in Godot. I studied Computer Science at Cavite State University, and my teams placed first runner-up at HackForGov 2 and fourth at HackForGov 3."
   ],
-  "location": "City, Country",
-  "timeZone": "UTC",
-  "timeZoneLabel": "UTC+0",
-  "years": "5+ years",
-  "email": "you@example.com",
-  "github": "https://github.com/yourhandle",
+  "location": "Cavite, Philippines",
+  "timeZone": "Asia/Manila",
+  "timeZoneLabel": "UTC+8",
+  "years": "4+ years",
+  "email": "lawrenceallen.tech@gmail.com",
+  "github": "https://github.com/toraaoo",
   "toolbox": [
-    { "label": "Languages", "items": ["TypeScript", "Go", "SQL"] },
-    { "label": "Data", "items": ["PostgreSQL", "Redis"] },
-    { "label": "Frontend", "items": ["React", "Next.js", "Tailwind"] },
-    { "label": "Infra", "items": ["Docker", "Linux", "GitHub Actions"] }
+    {
+      "label": "Languages",
+      "items": ["Python", "TypeScript", "JavaScript", "Rust", "C#", "Java"]
+    },
+    {
+      "label": "Backend & cloud",
+      "items": [
+        "AWS Lambda",
+        "CloudFormation",
+        "Node.js",
+        "Microservices",
+        "Docker",
+        "CI/CD"
+      ]
+    },
+    {
+      "label": "Data & AI",
+      "items": [
+        "PostgreSQL",
+        "DynamoDB",
+        "MongoDB",
+        "MySQL",
+        "PySpark",
+        "TensorFlow"
+      ]
+    },
+    {
+      "label": "Frontend & mobile",
+      "items": ["React", "Next.js", "React Native", "Flutter"]
+    }
   ],
   "experience": [
     {
-      "period": "2023 — now",
-      "role": "Senior Engineer",
-      "org": "Company A",
-      "note": "One sentence on what you owned and the outcome."
+      "period": "2026 — now",
+      "role": "Software Engineer",
+      "org": "IfElse PH, Inc.",
+      "note": "Own the server side of a digital wallet and an over-the-air update platform for LGES battery systems, working directly with embedded engineers on how updates reach the hardware."
     },
     {
-      "period": "2020 — 2023",
+      "period": "Jul 2025 — May 2026",
       "role": "Software Engineer",
-      "org": "Company B",
-      "note": "One sentence on what you owned and the outcome."
+      "org": "Stream Nation PH, Inc.",
+      "note": "Maintained a Node.js platform serving 300+ users on an AWS serverless, microservice architecture."
+    },
+    {
+      "period": "Nov 2024 — May 2025",
+      "role": "Web Developer",
+      "org": "Stream Nation PH, Inc.",
+      "note": "Built the company's React Native app end to end, integrated Shopify for the product catalogue, and owned CI/CD for both the app and its server."
+    },
+    {
+      "period": "Jun 2023 — Mar 2024",
+      "role": "Jr. Software Engineer",
+      "org": "PDAX",
+      "note": "Built serverless Python services on AWS, defined in CloudFormation, for a Philippine digital asset exchange. Designed API routes test-first and wrote PySpark jobs for data processing."
+    },
+    {
+      "period": "May 2022 — Jul 2025",
+      "role": "Freelance Full-Stack Engineer",
+      "org": "Independent",
+      "note": "Delivered cloud backends on AWS, React Native apps, machine-learning models and a RAG-based AI assistant for the University of Batangas, alongside indie and roguelike games."
     }
   ]
 }
