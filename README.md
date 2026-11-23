@@ -11,6 +11,17 @@ bun install
 bun run dev
 ```
 
+## Deployment
+
+The site builds with plain `next build` and runs on any Next.js host: Vercel,
+or any Node server with `bun run build && bun run start` (respects `PORT`).
+No host-specific config is checked in.
+
+Set `SITE_URL` (see `.env.example`) to the public origin, e.g.
+`https://example.com`. It feeds canonical URLs, `sitemap.xml`, `robots.txt`
+and Open Graph images. A production build fails without it; `dev` falls back
+to `http://localhost:3000`.
+
 ## SEO
 
 | What                                                         | Where                                                            |
@@ -61,7 +72,7 @@ After changing a schema in `lib/content/`, regenerate the JSON Schemas with
 
 | Script                    | What it does                                       |
 | ------------------------- | -------------------------------------------------- |
-| `dev` / `build` / `start` | Next.js on port 3000                               |
+| `dev` / `build` / `start` | Next.js (dev on port 3000, `start` honours `PORT`) |
 | `schema`                  | Regenerate `content/schemas/` from the Zod schemas |
 | `lint` / `lint:fix`       | Biome linter                                       |
 | `format` / `format:check` | Biome formatter                                    |
