@@ -3,7 +3,8 @@ import { ButtonLink } from "@/components/button-link"
 import { Container } from "@/components/container"
 import { ItemGroup } from "@/components/item"
 import { Kicker } from "@/components/kicker"
-import { AmbientGrid } from "@/components/motion/ambient-grid"
+import { AmbientGlow } from "@/components/motion/ambient-glow"
+import { HeroContours } from "@/components/motion/hero-contours"
 import { MaskText } from "@/components/motion/mask-text"
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal"
 import { Typewriter } from "@/components/motion/typewriter"
@@ -28,7 +29,8 @@ function HomePage() {
   return (
     <div>
       <Section className="min-h-[calc(100svh-3.75rem)] pt-16 pb-10">
-        <AmbientGrid />
+        <HeroContours seed="home" />
+        <AmbientGlow />
         <Container className="flex flex-1 flex-col justify-center">
           <RevealGroup>
             <RevealItem>
