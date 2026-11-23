@@ -127,7 +127,7 @@ function ProjectPage({ project, next }: { project: Project; next: Project }) {
         </div>
       </Container>
 
-      <Container className="mt-16">
+      <Container className="mt-16 pb-24">
         <Reveal>
           <Item
             variant="muted"

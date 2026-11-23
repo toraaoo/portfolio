@@ -13,7 +13,7 @@ const elsewhere = [
 
 function SiteFooter() {
   return (
-    <footer className="dark mt-24 border-t border-border bg-background text-foreground">
+    <footer className="dark border-t border-border bg-background text-foreground">
       <Container className="pt-14 pb-10">
         <div className="flex flex-wrap justify-between gap-8">
           <div className="max-w-85">

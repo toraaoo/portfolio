@@ -69,7 +69,7 @@ function HomePage() {
         </Container>
       </Section>
 
-      <Section className="border-t border-border">
+      <Section tone="tint" className="border-t border-border">
         <Container>
           <SplitSection
             index="01"
@@ -113,7 +113,7 @@ function HomePage() {
         </Container>
       </Section>
 
-      <Section className="border-t border-border">
+      <Section tone="tint" className="border-t border-border">
         <Container>
           <Reveal className="mt-16">
             <ContactBand profile={profile} heading={copy.contact.heading} />

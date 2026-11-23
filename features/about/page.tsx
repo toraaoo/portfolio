@@ -74,7 +74,7 @@ function AboutPage() {
         </Container>
       </Section>
 
-      <Section className="border-t border-border">
+      <Section tone="tint" className="border-t border-border">
         <Container>
           <SplitSection
             index="01"
