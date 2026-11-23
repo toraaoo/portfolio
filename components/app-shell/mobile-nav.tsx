@@ -3,10 +3,10 @@
 import { ListIcon } from "@phosphor-icons/react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { useState } from "react"
 import { Button } from "@/components/button"
 import {
   Drawer,
-  DrawerClose,
   DrawerContent,
   DrawerTitle,
   DrawerTrigger,
@@ -16,9 +16,10 @@ import { cn } from "@/lib/utils"
 
 function MobileNav({ items }: { items: readonly NavItem[] }) {
   const pathname = usePathname()
+  const [open, setOpen] = useState(false)
 
   return (
-    <Drawer swipeDirection="right">
+    <Drawer open={open} onOpenChange={setOpen} swipeDirection="right">
       <DrawerTrigger
         render={
           <Button variant="ghost" size="icon-sm" aria-label="Open navigation">
@@ -40,14 +41,15 @@ function MobileNav({ items }: { items: readonly NavItem[] }) {
             )
 
             return (
-              <DrawerClose
+              <Link
                 key={item.href}
-                render={
-                  <Link href={item.href} className={className}>
-                    {item.label}
-                  </Link>
-                }
-              />
+                href={item.href}
+                aria-current={active ? "page" : undefined}
+                onClick={() => setOpen(false)}
+                className={className}
+              >
+                {item.label}
+              </Link>
             )
           })}
         </nav>
