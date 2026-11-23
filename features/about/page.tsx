@@ -1,5 +1,5 @@
 import { EnvelopeSimpleIcon } from "@phosphor-icons/react/ssr"
-import { Avatar, AvatarFallback } from "@/components/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/avatar"
 import { ButtonLink } from "@/components/button-link"
 import { Container } from "@/components/container"
 import {
@@ -36,7 +36,14 @@ function AboutPage() {
             </RevealItem>
 
             <RevealItem className="flex flex-wrap items-start gap-7">
-              <Avatar className="size-24 rounded-lg">
+              <Avatar className="size-24 rounded-lg after:rounded-lg">
+                {profile.avatar ? (
+                  <AvatarImage
+                    src={profile.avatar}
+                    alt={profile.name}
+                    className="rounded-lg"
+                  />
+                ) : null}
                 <AvatarFallback className="rounded-lg bg-foreground font-mono text-3xl font-bold text-background">
                   {profile.initials}
                 </AvatarFallback>

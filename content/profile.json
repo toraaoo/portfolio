@@ -2,6 +2,7 @@
   "$schema": "./schemas/profile.schema.json",
   "name": "Lawrence Allen Almazan",
   "initials": "LA",
+  "avatar": "/avatar.jpg",
   "handle": "toraaoo",
   "role": "Full-Stack AI Engineer",
   "headline": "Full-stack engineer shipping AI from cloud to device.",

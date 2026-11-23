@@ -11,6 +11,12 @@
       "minLength": 1,
       "maxLength": 3
     },
+    "avatar": {
+      "type": "string",
+      "minLength": 1,
+      "format": "starts_with",
+      "pattern": "^\\/.*"
+    },
     "handle": {
       "type": "string",
       "minLength": 1

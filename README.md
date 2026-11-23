@@ -30,6 +30,8 @@ bun run dev
 - `timeZoneLabel` (e.g. `UTC+8`) is shown beside `location` in the footer.
 - `openTo` (optional, e.g. `Full-time roles`) fills the last hero stat; without
   it the stat shows `role` under "Currently".
+- `avatar` (optional) is a path to an image in `public/` (e.g. `/avatar.jpg`),
+  shown on the about page; without it the page shows `initials`.
 
 Each file points at a JSON Schema in `content/schemas/` through `$schema`, so
 editors autocomplete and flag mistakes as you type. The same rules are enforced

@@ -19,6 +19,9 @@ export const ExperienceEntrySchema = z.strictObject({
 export const ProfileSchema = z.strictObject({
   name: text,
   initials: text.max(3),
+  avatar: text
+    .startsWith("/", "Must be a path under public/, e.g. /avatar.jpg")
+    .optional(),
   handle: text,
   role: text,
   headline: text,
