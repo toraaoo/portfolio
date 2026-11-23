@@ -62,7 +62,7 @@ function HomePage() {
             </RevealItem>
           </RevealGroup>
         </Container>
-        <Container className="mt-12">
+        <Container className="mt-12 max-sm:hidden">
           <ScrollCue label="Scroll" />
         </Container>
       </Section>
