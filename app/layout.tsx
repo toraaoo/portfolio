@@ -23,7 +23,7 @@ const fontMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: profile.name,
+    default: `${profile.name} — ${profile.role}`,
     template: `%s — ${profile.name}`,
   },
   description: profile.tagline,
