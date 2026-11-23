@@ -52,7 +52,7 @@ function Typewriter({
       {caret ? (
         <span
           aria-hidden
-          className="ml-0.5 inline-block h-[1em] w-[0.5ch] translate-y-[0.1em] bg-current animate-caret"
+          className="ml-0.5 inline-block h-[1em] w-[0.5ch] translate-y-[0.1em] bg-brand animate-caret"
         />
       ) : null}
     </span>

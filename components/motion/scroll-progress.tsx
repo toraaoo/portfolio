@@ -16,7 +16,7 @@ function ScrollProgress({ className }: { className?: string }) {
       aria-hidden
       style={{ scaleX }}
       className={cn(
-        "pointer-events-none absolute inset-x-0 bottom-0 h-px origin-left bg-foreground",
+        "pointer-events-none absolute inset-x-0 bottom-0 h-px origin-left bg-brand",
         className
       )}
     />

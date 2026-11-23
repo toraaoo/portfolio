@@ -29,7 +29,7 @@ function MainNav({ items }: { items: readonly NavItem[] }) {
                 <motion.span
                   layoutId="nav-active"
                   transition={layoutMorph}
-                  className="absolute inset-x-3 -bottom-px h-px bg-foreground"
+                  className="absolute inset-x-3 -bottom-px h-px bg-brand"
                 />
               ) : null}
             </>

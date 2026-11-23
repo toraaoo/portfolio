@@ -21,7 +21,7 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
     >
       <span
         aria-hidden
-        className="absolute inset-y-0 left-0 w-px origin-center scale-y-0 bg-foreground transition-transform duration-200 ease-out group-hover:scale-y-100"
+        className="absolute inset-y-0 left-0 w-px origin-center scale-y-0 bg-brand transition-transform duration-200 ease-out group-hover:scale-y-100"
       />
       <ItemMedia className="relative grid size-5 place-items-center font-mono text-sm text-muted-foreground">
         <span className="transition-opacity duration-200 group-hover:opacity-0">

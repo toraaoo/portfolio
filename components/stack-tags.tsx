@@ -54,7 +54,7 @@ function StackTags({
         >
           <Badge
             variant={variant}
-            className="text-muted-foreground transition-colors hover:border-foreground/40 hover:text-foreground"
+            className="text-muted-foreground transition-colors hover:border-brand/40 hover:text-foreground"
           >
             {entry}
           </Badge>

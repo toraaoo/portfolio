@@ -26,7 +26,7 @@ function ScrollRail({
       <motion.div
         aria-hidden
         style={{ scaleY }}
-        className="absolute inset-y-0 left-0 w-px origin-top bg-foreground"
+        className="absolute inset-y-0 left-0 w-px origin-top bg-brand"
       />
       {children}
     </div>

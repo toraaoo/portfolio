@@ -62,7 +62,7 @@ function ProseToc({
                 <motion.span
                   layoutId="toc-active"
                   transition={layoutMorph}
-                  className="absolute inset-y-0 left-0 w-px bg-foreground"
+                  className="absolute inset-y-0 left-0 w-px bg-brand"
                 />
               ) : null}
               <a

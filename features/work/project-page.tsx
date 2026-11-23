@@ -132,7 +132,7 @@ function ProjectPage({ project, next }: { project: Project; next: Project }) {
           <Item
             variant="muted"
             render={<Link href={routes.project(next.slug)} />}
-            className="group relative isolate overflow-hidden rounded-xl border border-border px-6 py-6 transition-colors hover:border-foreground/40"
+            className="group relative isolate overflow-hidden rounded-xl border border-border px-6 py-6 transition-colors hover:border-brand/40"
           >
             <Spotlight size={420} />
             <ItemContent className="relative gap-1.5">

@@ -171,6 +171,10 @@
   --color-input: var(--input);
   --color-border: var(--border);
   --color-grid: var(--grid);
+  --color-contour: var(--contour);
+  --color-tint: var(--tint);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
   --color-destructive: var(--destructive);
   --color-success: var(--success);
   --color-warning: var(--warning);
@@ -194,6 +198,7 @@
   --radius: 5px;
 
   --background: var(--paper);
+  --tint: var(--ink-100);
   --foreground: var(--ink-950);
   --card: var(--paper-raised);
   --card-foreground: var(--ink-950);
@@ -209,6 +214,9 @@
   --accent: var(--ink-100);
   --accent-foreground: var(--ink-950);
 
+  --brand: var(--ink-950);
+  --brand-foreground: var(--paper-raised);
+
   --destructive: var(--signal-danger);
   --success: var(--signal-success);
   --warning: var(--signal-warning);
@@ -218,8 +226,11 @@
   --ring: var(--accent-300);
 
   --grid: rgb(10 10 11 / 0.085);
+  --contour: rgb(10 10 11 / 0.085);
+  --contour-index: rgb(10 10 11 / 0.16);
+  --glow: rgb(10 10 11 / 0.05);
+  --grain-opacity: 0.04;
   --spotlight: rgb(10 10 11 / 0.07);
-  --sheen: rgb(10 10 11 / 0.06);
 
   --chart-1: var(--ink-950);
   --chart-2: var(--ink-700);
@@ -239,6 +250,7 @@
 
 .dark {
   --background: var(--ink-950);
+  --tint: #0f0f11;
   --foreground: var(--ink-50);
   --card: var(--ink-900);
   --card-foreground: var(--ink-50);
@@ -254,6 +266,9 @@
   --accent: var(--ink-800);
   --accent-foreground: var(--ink-50);
 
+  --brand: var(--ink-50);
+  --brand-foreground: var(--ink-950);
+
   --destructive: #e5716f;
   --success: #34b36b;
   --warning: #d9a03c;
@@ -263,8 +278,11 @@
   --ring: var(--ink-500);
 
   --grid: rgb(255 255 255 / 0.075);
+  --contour: rgb(255 255 255 / 0.065);
+  --contour-index: rgb(255 255 255 / 0.12);
+  --glow: rgb(255 255 255 / 0.04);
+  --grain-opacity: 0.05;
   --spotlight: rgb(255 255 255 / 0.06);
-  --sheen: rgb(255 255 255 / 0.06);
 
   --chart-1: var(--ink-50);
   --chart-2: var(--ink-300);

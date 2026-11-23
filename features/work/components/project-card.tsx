@@ -30,7 +30,7 @@ function ProjectCard({
         className={cn(
           "relative isolate h-full gap-5 overflow-hidden [--card-spacing:--spacing(6)]",
           "transition-[border-color,box-shadow,transform] duration-200 ease-out",
-          "group-hover:-translate-y-0.5 group-hover:border-foreground/40 group-hover:shadow-md"
+          "group-hover:-translate-y-0.5 group-hover:border-brand/40 group-hover:shadow-md"
         )}
       >
         <Spotlight />
