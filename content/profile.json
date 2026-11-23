@@ -9,9 +9,9 @@
   "tagline": "Full-stack AI engineer shipping products from cloud to device.",
   "intro": "4+ years building serverless backends on AWS, mobile apps in React Native and Flutter, and AI features from RAG chatbots to on-device models. I make games on the side.",
   "bio": [
-    "I'm a full-stack AI engineer based in Cavite, Philippines. At IfElse PH I own the server side of two products: a digital wallet, and an over-the-air update platform that delivers new software to LGES battery systems. I work directly with the embedded team, so the cloud side and the hardware side are designed together rather than handed over.",
-    "Before IfElse, I built serverless Python services on AWS at PDAX, a Philippine digital asset exchange, and kept a Node.js platform running for Stream Nation's users. I also spent three years freelancing, delivering cloud backends, React Native apps and machine-learning models for companies and individual clients, including a RAG-based AI assistant for the University of Batangas.",
-    "Outside client work I ship open-source software: a Minecraft launcher and server manager written in Rust, a planning tool for AI coding agents, and indie games in Godot. I studied Computer Science at Cavite State University, and my teams placed first runner-up at HackForGov 2 and fourth at HackForGov 3."
+    "I'm a full-stack AI engineer based in Cavite, Philippines. I build serverless backends on AWS, mobile apps in React Native and Flutter, and AI features from RAG chatbots to on-device models.",
+    "My work spans serverless Python services defined in CloudFormation, APIs designed test-first, data jobs in PySpark, CI/CD pipelines, and over-the-air update systems that deliver software to hardware.",
+    "I also ship open-source software: a Minecraft launcher and server manager written in Rust, a planning tool for AI coding agents, and indie games in Godot. I studied Computer Science at Cavite State University, and my teams placed first runner-up at HackForGov 2 and fourth at HackForGov 3."
   ],
   "location": "Cavite, Philippines",
   "timeZoneLabel": "UTC+8",
@@ -56,7 +56,7 @@
     {
       "period": "2026 — now",
       "role": "Software Engineer",
-      "org": "IfElse PH, Inc.",
+      "org": "IFELSE Philippines Inc.",
       "note": "Own the server side of a digital wallet and an over-the-air update platform for LGES battery systems, working directly with embedded engineers on how updates reach the hardware."
     },
     {
