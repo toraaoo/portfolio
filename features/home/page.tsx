@@ -115,7 +115,7 @@ function HomePage() {
 
       <Section tone="tint" className="border-t border-border">
         <Container>
-          <Reveal className="mt-16">
+          <Reveal>
             <ContactBand profile={profile} heading={copy.contact.heading} />
           </Reveal>
         </Container>
