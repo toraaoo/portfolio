@@ -13,7 +13,7 @@ export type {
   ToolboxGroup,
 } from "@/lib/content/profile"
 export type { Project, ProjectStatus } from "@/lib/content/project"
-export { STATUS_LABELS } from "@/lib/content/project"
+export { PROJECT_STATUSES, STATUS_LABELS } from "@/lib/content/project"
 
 export const profile: Profile = parseContent(
   ProfileFileSchema,
