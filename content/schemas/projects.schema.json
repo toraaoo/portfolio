@@ -54,6 +54,12 @@
             "default": false,
             "type": "boolean"
           },
+          "cover": {
+            "type": "string",
+            "minLength": 1,
+            "format": "starts_with",
+            "pattern": "^\\/.*"
+          },
           "sections": {
             "default": [],
             "type": "array",

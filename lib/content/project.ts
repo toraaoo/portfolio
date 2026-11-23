@@ -33,6 +33,9 @@ export const ProjectSchema = z.strictObject({
   metric: text,
   stack: z.array(text).min(1),
   featured: z.boolean().default(false),
+  cover: text
+    .startsWith("/", "Must be a path under public/, e.g. /covers/hestia.jpg")
+    .optional(),
   sections: z
     .array(z.strictObject({ heading: text, body: z.array(text).min(1) }))
     .default([]),

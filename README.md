@@ -26,7 +26,11 @@ bun run dev
   and the first four non-featured projects as rows.
 - `status` is one of `shipped`, `wip`, `open_source`, `archived`.
 - Optional project fields: `featured` (default `false`), `sections`
-  (default `[]`), `sourceUrl`, `liveUrl`.
+  (default `[]`), `sourceUrl`, `liveUrl`, `cover`.
+- `cover` is a path to an image in `public/` (e.g. `/covers/hestia.jpg`),
+  shown in the strip at the top of the project card; without it the card
+  shows contour lines generated from the slug. A wide image (about 8:3)
+  crops best.
 - `timeZoneLabel` (e.g. `UTC+8`) is shown beside `location` in the footer.
 - `openTo` (optional, e.g. `Full-time roles`) fills the last hero stat; without
   it the stat shows `role` under "Currently".

@@ -10,6 +10,7 @@ import {
 } from "@/components/card"
 import { Spotlight } from "@/components/motion/spotlight"
 import { StackTags } from "@/components/stack-tags"
+import { ProjectCover } from "@/features/work/components/project-cover"
 import { ProjectStatusBadge } from "@/features/work/components/project-status"
 import type { Project } from "@/lib/content"
 import { routes } from "@/lib/routes"
@@ -28,12 +29,18 @@ function ProjectCard({
     <Link href={routes.project(project.slug)} className="group block h-full">
       <Card
         className={cn(
-          "relative isolate h-full gap-5 overflow-hidden [--card-spacing:--spacing(6)]",
+          "relative isolate h-full gap-5 overflow-hidden pt-0 [--card-spacing:--spacing(6)]",
           "transition-[border-color,box-shadow,transform] duration-200 ease-out",
           "group-hover:-translate-y-0.5 group-hover:border-brand/40 group-hover:shadow-md"
         )}
       >
         <Spotlight />
+        <ProjectCover
+          seed={project.slug}
+          image={project.cover}
+          sizes="(min-width: 768px) 520px, 100vw"
+          className="aspect-[8/3] border-b border-border"
+        />
         <CardHeader className="relative items-baseline">
           <CardDescription className="font-mono text-sm">
             {showMetric ? project.metric : project.year}
