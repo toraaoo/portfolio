@@ -28,7 +28,7 @@ function HomePage() {
 
   return (
     <div>
-      <Section className="min-h-[calc(100svh-3.75rem)] pt-16 pb-10">
+      <Section className="min-h-[calc(100svh-3.75rem)] pt-16 pb-10 short:pt-8 short:pb-6">
         <HeroContours seed="home" />
         <AmbientGlow />
         <Container className="flex flex-1 flex-col justify-center">
@@ -42,11 +42,11 @@ function HomePage() {
               <MaskText text={profile.headline} delay={0.15} />
             </h1>
             <RevealItem>
-              <p className="mt-6.5 max-w-135 text-md leading-normal text-muted-foreground">
+              <p className="mt-6.5 max-w-135 text-md short:mt-4 leading-normal text-muted-foreground">
                 {profile.intro}
               </p>
             </RevealItem>
-            <RevealItem className="mt-7.5 flex flex-wrap gap-3">
+            <RevealItem className="mt-7.5 flex flex-wrap gap-3 short:mt-5">
               <ButtonLink href={routes.work} size="lg" className="group">
                 View work
                 <ArrowRightIcon
@@ -59,12 +59,12 @@ function HomePage() {
                 About me
               </ButtonLink>
             </RevealItem>
-            <RevealItem className="mt-14">
+            <RevealItem className="mt-14 short:mt-8">
               <HeroStats profile={profile} />
             </RevealItem>
           </RevealGroup>
         </Container>
-        <Container className="mt-12 max-sm:hidden">
+        <Container className="mt-12 max-sm:hidden short:hidden">
           <ScrollCue label="Scroll" />
         </Container>
       </Section>
