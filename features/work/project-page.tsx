@@ -22,7 +22,7 @@ import { Prose, ProseHeading, ProseParagraph } from "@/components/prose"
 import { ProseToc } from "@/components/prose-toc"
 import { SpecGrid } from "@/components/spec-grid"
 
-import { ProjectStatusBadge } from "@/features/work/components"
+import { ProjectCover, ProjectStatusBadge } from "@/features/work/components"
 import type { Project } from "@/lib/content"
 import { routes } from "@/lib/routes"
 import { slugify } from "@/lib/slug"
@@ -54,8 +54,18 @@ function ProjectPage({ project, next }: { project: Project; next: Project }) {
           All work
         </ButtonLink>
 
+        <Reveal className="mt-6">
+          <ProjectCover
+            seed={project.slug}
+            image={project.cover}
+            sizes="(min-width: 1080px) 1024px, 100vw"
+            priority
+            className="aspect-[16/7] rounded-xl border border-border sm:aspect-[21/7]"
+          />
+        </Reveal>
+
         <RevealGroup>
-          <RevealItem className="mt-9 flex items-center gap-3">
+          <RevealItem className="mt-10 flex items-center gap-3">
             <ProjectStatusBadge status={project.status} />
             <span className="font-mono text-sm text-muted-foreground">
               {project.year}
