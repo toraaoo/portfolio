@@ -1,6 +1,3 @@
-import { EnvelopeSimpleIcon } from "@phosphor-icons/react/ssr"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/avatar"
-import { ButtonLink } from "@/components/button-link"
 import { Container } from "@/components/container"
 import {
   Item,
@@ -11,13 +8,13 @@ import {
   ItemTitle,
 } from "@/components/item"
 import { Kicker } from "@/components/kicker"
-import { MaskText } from "@/components/motion/mask-text"
-import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal"
+import { AmbientGlow } from "@/components/motion/ambient-glow"
+import { Reveal } from "@/components/motion/reveal"
 import { ScrollRail } from "@/components/motion/scroll-rail"
-import { Typewriter } from "@/components/motion/typewriter"
 import { Section } from "@/components/section"
 import { SplitSection } from "@/components/split-section"
 import { StackTags } from "@/components/stack-tags"
+import { AboutIntro } from "@/features/about/components/about-intro"
 
 import { pages, profile } from "@/lib/content"
 
@@ -26,51 +23,10 @@ function AboutPage() {
 
   return (
     <div>
-      <Section className="min-h-[calc(100svh-3.75rem)] pt-16 pb-16">
-        <Container className="flex flex-1 flex-col justify-center">
-          <RevealGroup>
-            <RevealItem>
-              <Kicker className="mb-4.5">
-                <Typewriter text="// about" />
-              </Kicker>
-            </RevealItem>
-
-            <RevealItem className="flex flex-wrap items-start gap-7">
-              <Avatar className="size-24 rounded-lg after:rounded-lg">
-                {profile.avatar ? (
-                  <AvatarImage
-                    src={profile.avatar}
-                    alt={profile.name}
-                    className="rounded-lg"
-                  />
-                ) : null}
-                <AvatarFallback className="rounded-lg bg-foreground font-mono text-3xl font-bold text-background">
-                  {profile.initials}
-                </AvatarFallback>
-              </Avatar>
-              <div className="min-w-65 flex-1">
-                <h1 className="font-heading text-3xl font-medium tracking-tighter">
-                  <MaskText text={profile.name} />
-                </h1>
-                <p className="mt-2 font-mono text-sm text-muted-foreground">
-                  {profile.role} · {profile.location}
-                </p>
-              </div>
-            </RevealItem>
-
-            <RevealItem className="mt-8 grid max-w-prose gap-4.5 text-md leading-relaxed text-muted-foreground">
-              {profile.bio.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </RevealItem>
-
-            <RevealItem className="mt-7 flex flex-wrap gap-3">
-              <ButtonLink href={`mailto:${profile.email}`}>
-                <EnvelopeSimpleIcon data-icon="inline-start" />
-                Get in touch
-              </ButtonLink>
-            </RevealItem>
-          </RevealGroup>
+      <Section className="min-h-[calc(100svh-3.75rem)] py-12 short:py-8">
+        <AmbientGlow />
+        <Container>
+          <AboutIntro profile={profile} />
         </Container>
       </Section>
 
