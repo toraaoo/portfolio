@@ -103,9 +103,16 @@ function AboutPage() {
             <ScrollRail>
               <ItemGroup className="gap-0 pl-7">
                 {profile.experience.map((entry) => (
-                  <Reveal key={`${entry.org}-${entry.role}-${entry.period}`}>
-                    <Item className="group items-start gap-5 rounded-none px-0 py-5">
-                      <ItemMedia className="w-28 shrink-0 pt-0.5 font-mono text-sm text-muted-foreground transition-colors group-hover:text-foreground">
+                  <Reveal
+                    key={`${entry.org}-${entry.role}-${entry.period}`}
+                    className="group relative"
+                  >
+                    <span
+                      aria-hidden
+                      className="absolute top-7 left-[calc(-1.75rem+0.5px)] size-2 -translate-x-1/2 rounded-full border border-brand bg-background transition-colors duration-300 group-hover:bg-brand"
+                    />
+                    <Item className="flex-nowrap items-start gap-5 rounded-none px-0 py-5 max-sm:flex-col max-sm:gap-1.5">
+                      <ItemMedia className="shrink-0 pt-0.5 font-mono text-sm sm:w-28 text-muted-foreground transition-colors group-hover:text-foreground">
                         {entry.period}
                       </ItemMedia>
                       <ItemContent className="gap-1.5">
@@ -117,7 +124,9 @@ function AboutPage() {
                             @ {entry.org}
                           </span>
                         </div>
-                        <ItemDescription>{entry.note}</ItemDescription>
+                        <ItemDescription className="line-clamp-none">
+                          {entry.note}
+                        </ItemDescription>
                       </ItemContent>
                     </Item>
                   </Reveal>
