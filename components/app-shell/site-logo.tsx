@@ -21,7 +21,6 @@ function SiteLogo({
     >
       <Logomark />
       <span className="hidden font-mono text-base font-bold tracking-tight sm:inline">
-        <span className="opacity-55">&gt;</span>
         {handle}
       </span>
       <span className="sr-only">{handle}</span>
