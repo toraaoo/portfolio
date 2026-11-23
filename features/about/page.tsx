@@ -1,7 +1,4 @@
-import {
-  DownloadSimpleIcon,
-  EnvelopeSimpleIcon,
-} from "@phosphor-icons/react/ssr"
+import { EnvelopeSimpleIcon } from "@phosphor-icons/react/ssr"
 import { Avatar, AvatarFallback } from "@/components/avatar"
 import { ButtonLink } from "@/components/button-link"
 import { Container } from "@/components/container"
@@ -22,10 +19,10 @@ import { Section } from "@/components/section"
 import { SplitSection } from "@/components/split-section"
 import { StackTags } from "@/components/stack-tags"
 
-import { loadProfile } from "@/lib/content"
+import { pages, profile } from "@/lib/content"
 
-async function AboutPage() {
-  const profile = await loadProfile()
+function AboutPage() {
+  const copy = pages.about
 
   return (
     <div>
@@ -65,10 +62,6 @@ async function AboutPage() {
                 <EnvelopeSimpleIcon data-icon="inline-start" />
                 Get in touch
               </ButtonLink>
-              <ButtonLink href="/resume.pdf" variant="outline">
-                <DownloadSimpleIcon data-icon="inline-start" />
-                Résumé
-              </ButtonLink>
             </RevealItem>
           </RevealGroup>
         </Container>
@@ -78,8 +71,8 @@ async function AboutPage() {
         <Container>
           <SplitSection
             index="01"
-            title="Toolbox"
-            description="What I reach for. The list is short on purpose — depth beats breadth."
+            title={copy.toolbox.title}
+            description={copy.toolbox.description}
           >
             <div className="grid gap-7 sm:grid-cols-2">
               {profile.toolbox.map((group) => (
@@ -97,8 +90,8 @@ async function AboutPage() {
         <Container>
           <SplitSection
             index="02"
-            title="Experience"
-            description="Ten years of backend work, mostly on systems other engineers build on."
+            title={copy.experience.title}
+            description={copy.experience.description}
           >
             <ScrollRail>
               <ItemGroup className="gap-0 pl-7">

@@ -3,25 +3,23 @@ import { SiteLogo } from "@/components/app-shell/site-logo"
 import { Container } from "@/components/container"
 import { Kicker } from "@/components/kicker"
 import { Separator } from "@/components/separator"
-import type { SiteIdentity, SiteLink, SiteNavItem } from "@/lib/site"
+import { profile } from "@/lib/content"
+import { navItems, routes } from "@/lib/routes"
 
-function SiteFooter({
-  identity,
-  navItems,
-  elsewhere,
-}: {
-  identity: SiteIdentity
-  navItems: SiteNavItem[]
-  elsewhere: SiteLink[]
-}) {
+const elsewhere = [
+  { label: "GitHub", href: profile.github },
+  { label: "Email", href: `mailto:${profile.email}` },
+]
+
+function SiteFooter() {
   return (
     <footer className="dark mt-24 border-t border-border bg-background text-foreground">
       <Container className="pt-14 pb-10">
         <div className="flex flex-wrap justify-between gap-8">
           <div className="max-w-85">
-            <SiteLogo handle={identity.handle} href={identity.homeHref} />
+            <SiteLogo handle={profile.handle} href={routes.home} />
             <p className="mt-3.5 text-sm text-muted-foreground">
-              {identity.tagline}
+              {profile.tagline}
             </p>
           </div>
           <div className="flex gap-14">
@@ -30,21 +28,12 @@ function SiteFooter({
               <ul className="grid gap-2.5">
                 {navItems.map((item) => (
                   <li key={item.href}>
-                    {item.external ? (
-                      <a
-                        href={item.href}
-                        className="font-mono text-sm text-muted-foreground transition-colors hover:text-foreground"
-                      >
-                        {item.label}
-                      </a>
-                    ) : (
-                      <Link
-                        href={item.href}
-                        className="font-mono text-sm text-muted-foreground transition-colors hover:text-foreground"
-                      >
-                        {item.label}
-                      </Link>
-                    )}
+                    <Link
+                      href={item.href}
+                      className="font-mono text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      {item.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -71,10 +60,10 @@ function SiteFooter({
 
         <div className="flex flex-wrap justify-between gap-3 font-mono text-xs text-muted-foreground">
           <span>
-            © {new Date().getFullYear()} {identity.name}
+            © {new Date().getFullYear()} {profile.name}
           </span>
           <span>
-            {identity.location} · {identity.timezone}
+            {profile.location} · {profile.timeZoneLabel}
           </span>
         </div>
       </Container>

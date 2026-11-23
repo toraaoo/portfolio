@@ -11,7 +11,13 @@ import { Spotlight } from "@/components/motion/spotlight"
 import type { Profile } from "@/lib/content"
 import { routes } from "@/lib/routes"
 
-function ContactBand({ profile }: { profile: Profile }) {
+function ContactBand({
+  profile,
+  heading,
+}: {
+  profile: Profile
+  heading: string
+}) {
   return (
     <Card className="relative isolate overflow-hidden [--card-spacing:--spacing(7)]">
       <Spotlight size={420} />
@@ -19,7 +25,7 @@ function ContactBand({ profile }: { profile: Profile }) {
         <div className="max-w-125">
           <Kicker className="mb-3">{"// get in touch"}</Kicker>
           <p className="font-heading text-xl leading-snug font-medium tracking-tight">
-            Working on something with sharp edges? I read every mail.
+            {heading}
           </p>
           <p className="mt-2 font-mono text-sm text-muted-foreground">
             {profile.email}
@@ -30,11 +36,7 @@ function ContactBand({ profile }: { profile: Profile }) {
             <EnvelopeSimpleIcon data-icon="inline-start" />
             Send a mail
           </ButtonLink>
-          <ButtonLink
-            href={`https://${profile.github}`}
-            external
-            variant="outline"
-          >
+          <ButtonLink href={profile.github} external variant="outline">
             <GithubLogoIcon data-icon="inline-start" />
             GitHub
           </ButtonLink>

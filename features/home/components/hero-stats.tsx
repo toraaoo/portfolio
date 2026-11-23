@@ -10,7 +10,7 @@ function HeroStats({
   projects,
 }: {
   profile: Profile
-  projects: Project[]
+  projects: readonly Project[]
 }) {
   const shipped = projects.filter(
     (project) => project.status === "shipped"
@@ -27,7 +27,7 @@ function HeroStats({
       value: (
         <span className="flex flex-wrap items-baseline gap-x-2">
           {profile.location}
-          <LocalTime timeZone={profile.timezoneCode} />
+          <LocalTime timeZone={profile.timeZone} />
         </span>
       ),
     },

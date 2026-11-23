@@ -1,10 +1,13 @@
 import type { Project } from "@/lib/content"
 
-export function stacksOf(projects: Project[]) {
+export function stacksOf(projects: readonly Project[]) {
   return Array.from(new Set(projects.flatMap((project) => project.stack)))
 }
 
-export function filterByStack(projects: Project[], stack: string | null) {
+export function filterByStack(
+  projects: readonly Project[],
+  stack: string | null
+) {
   if (!stack) {
     return projects
   }

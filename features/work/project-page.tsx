@@ -6,7 +6,6 @@ import {
 } from "@phosphor-icons/react/ssr"
 import Link from "next/link"
 import { ButtonLink } from "@/components/button-link"
-import { CodeBlock } from "@/components/code-block"
 import { Container } from "@/components/container"
 import {
   Item,
@@ -22,7 +21,6 @@ import { Spotlight } from "@/components/motion/spotlight"
 import { Prose, ProseHeading, ProseParagraph } from "@/components/prose"
 import { ProseToc } from "@/components/prose-toc"
 import { SpecGrid } from "@/components/spec-grid"
-import { VisualSlot } from "@/components/visual-slot"
 
 import { ProjectStatusBadge } from "@/features/work/components"
 import type { Project } from "@/lib/content"
@@ -84,15 +82,6 @@ function ProjectPage({ project, next }: { project: Project; next: Project }) {
         </RevealGroup>
       </Container>
 
-      <Container className="mt-12">
-        <Reveal>
-          <VisualSlot
-            className="h-95"
-            label="// project visual — drop a screenshot or diagram here"
-          />
-        </Reveal>
-      </Container>
-
       <Container className="mt-14">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,11rem)] lg:gap-14">
           <Reveal className="min-w-0 max-w-prose">
@@ -112,11 +101,6 @@ function ProjectPage({ project, next }: { project: Project; next: Project }) {
                   ))}
                 </div>
               ))}
-
-              <CodeBlock
-                code={project.codeSource}
-                caption={project.codeCaption}
-              />
             </Prose>
 
             {project.sourceUrl || project.liveUrl ? (

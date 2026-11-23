@@ -11,10 +11,10 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/drawer"
-import type { SiteNavItem } from "@/lib/site"
+import { isActive, type NavItem } from "@/lib/routes"
 import { cn } from "@/lib/utils"
 
-function MobileNav({ items }: { items: SiteNavItem[] }) {
+function MobileNav({ items }: { items: readonly NavItem[] }) {
   const pathname = usePathname()
 
   return (
@@ -30,9 +30,7 @@ function MobileNav({ items }: { items: SiteNavItem[] }) {
         <DrawerTitle className="sr-only">Navigation</DrawerTitle>
         <nav className="grid gap-1 px-5 pt-14">
           {items.map((item) => {
-            const active = (item.match ?? []).some((prefix) =>
-              pathname.startsWith(prefix)
-            )
+            const active = isActive(pathname, item)
 
             const className = cn(
               "border-b border-border py-3.5 font-mono text-sm transition-colors",
@@ -45,15 +43,9 @@ function MobileNav({ items }: { items: SiteNavItem[] }) {
               <DrawerClose
                 key={item.href}
                 render={
-                  item.external ? (
-                    <a href={item.href} className={className}>
-                      {item.label}
-                    </a>
-                  ) : (
-                    <Link href={item.href} className={className}>
-                      {item.label}
-                    </Link>
-                  )
+                  <Link href={item.href} className={className}>
+                    {item.label}
+                  </Link>
                 }
               />
             )

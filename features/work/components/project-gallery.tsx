@@ -43,7 +43,7 @@ function FilterItem({
   )
 }
 
-function ProjectGallery({ projects }: { projects: Project[] }) {
+function ProjectGallery({ projects }: { projects: readonly Project[] }) {
   const [stack, setStack] = React.useState<string | null>(null)
   const stacks = React.useMemo(() => stacksOf(projects), [projects])
   const visible = filterByStack(projects, stack)

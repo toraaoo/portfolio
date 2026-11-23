@@ -1,0 +1,30 @@
+{
+  "$schema": "./schemas/pages.schema.json",
+  "home": {
+    "work": {
+      "title": "Selected work",
+      "description": "A few projects I designed and built."
+    },
+    "toolbox": {
+      "title": "Toolbox",
+      "description": "What I reach for. The list is short on purpose — depth beats breadth."
+    },
+    "contact": {
+      "heading": "Working on something interesting? I read every mail."
+    }
+  },
+  "work": {
+    "title": "Work",
+    "description": "Things I designed and built."
+  },
+  "about": {
+    "toolbox": {
+      "title": "Toolbox",
+      "description": "What I reach for. The list is short on purpose — depth beats breadth."
+    },
+    "experience": {
+      "title": "Experience",
+      "description": "Where I have worked and what I did there."
+    }
+  }
+}

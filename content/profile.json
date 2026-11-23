@@ -1,0 +1,40 @@
+{
+  "$schema": "./schemas/profile.schema.json",
+  "name": "Your Name",
+  "initials": "YN",
+  "handle": "yourhandle",
+  "role": "Software Engineer",
+  "headline": "I build reliable systems and the tools around them.",
+  "tagline": "Software engineer building backend systems and developer tools.",
+  "intro": "A short paragraph introducing yourself: what you do, what you care about and what you are looking for.",
+  "bio": [
+    "First paragraph of your bio. Where you started and what you work on today.",
+    "Second paragraph. What you enjoy outside of work, or how you like to collaborate."
+  ],
+  "location": "City, Country",
+  "timeZone": "UTC",
+  "timeZoneLabel": "UTC+0",
+  "years": "5+ years",
+  "email": "you@example.com",
+  "github": "https://github.com/yourhandle",
+  "toolbox": [
+    { "label": "Languages", "items": ["TypeScript", "Go", "SQL"] },
+    { "label": "Data", "items": ["PostgreSQL", "Redis"] },
+    { "label": "Frontend", "items": ["React", "Next.js", "Tailwind"] },
+    { "label": "Infra", "items": ["Docker", "Linux", "GitHub Actions"] }
+  ],
+  "experience": [
+    {
+      "period": "2023 — now",
+      "role": "Senior Engineer",
+      "org": "Company A",
+      "note": "One sentence on what you owned and the outcome."
+    },
+    {
+      "period": "2020 — 2023",
+      "role": "Software Engineer",
+      "org": "Company B",
+      "note": "One sentence on what you owned and the outcome."
+    }
+  ]
+}

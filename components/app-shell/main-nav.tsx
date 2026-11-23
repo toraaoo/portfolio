@@ -10,19 +10,17 @@ import {
   NavigationMenuList,
 } from "@/components/navigation-menu"
 import { layoutMorph } from "@/lib/motion"
-import type { SiteNavItem } from "@/lib/site"
+import { isActive, type NavItem } from "@/lib/routes"
 import { cn } from "@/lib/utils"
 
-function MainNav({ items }: { items: SiteNavItem[] }) {
+function MainNav({ items }: { items: readonly NavItem[] }) {
   const pathname = usePathname()
 
   return (
     <NavigationMenu>
       <NavigationMenuList className="gap-1">
         {items.map((item) => {
-          const active = (item.match ?? []).some((prefix) =>
-            pathname.startsWith(prefix)
-          )
+          const active = isActive(pathname, item)
 
           const label = (
             <>
@@ -41,13 +39,7 @@ function MainNav({ items }: { items: SiteNavItem[] }) {
             <NavigationMenuItem key={item.href}>
               <NavigationMenuLink
                 data-active={active || undefined}
-                render={
-                  item.external ? (
-                    <a href={item.href}>{label}</a>
-                  ) : (
-                    <Link href={item.href}>{label}</Link>
-                  )
-                }
+                render={<Link href={item.href}>{label}</Link>}
                 className={cn(
                   "relative px-3 py-2 font-mono text-sm data-active:bg-transparent",
                   active

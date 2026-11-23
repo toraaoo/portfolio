@@ -17,17 +17,11 @@ import {
   ToolboxGrid,
 } from "@/features/home/components"
 import { ProjectCard, ProjectRow } from "@/features/work/components"
-import { PostRow } from "@/features/writing/components"
-import { loadPosts, loadProfile, loadProjects } from "@/lib/content"
+import { pages, profile, projects } from "@/lib/content"
 import { routes } from "@/lib/routes"
 
-async function HomePage() {
-  const [profile, projects, posts] = await Promise.all([
-    loadProfile(),
-    loadProjects(),
-    loadPosts(3),
-  ])
-
+function HomePage() {
+  const copy = pages.home
   const featured = projects.filter((project) => project.featured)
   const rest = projects.filter((project) => !project.featured).slice(0, 4)
 
@@ -77,8 +71,8 @@ async function HomePage() {
         <Container>
           <SplitSection
             index="01"
-            title="Selected work"
-            description="Six projects, mostly backend systems and the tooling around them. Two are worth a longer look."
+            title={copy.work.title}
+            description={copy.work.description}
             action={{ label: "All projects", href: routes.work }}
           >
             <RevealGroup className="grid gap-4.5 md:grid-cols-2">
@@ -108,8 +102,8 @@ async function HomePage() {
         <Container>
           <SplitSection
             index="02"
-            title="Toolbox"
-            description="What I reach for. The list is short on purpose — depth beats breadth."
+            title={copy.toolbox.title}
+            description={copy.toolbox.description}
             action={{ label: "More about me", href: routes.about }}
           >
             <ToolboxGrid groups={profile.toolbox} />
@@ -119,29 +113,8 @@ async function HomePage() {
 
       <Section className="border-t border-border">
         <Container>
-          <SplitSection
-            index="03"
-            title="Recent writing"
-            description="Notes on databases, distributed systems and the tools I keep rebuilding."
-            action={{
-              label: "All posts",
-              href: routes.writing,
-              external: true,
-            }}
-          >
-            <RevealGroup>
-              <ItemGroup className="gap-0">
-                {posts.map((post) => (
-                  <RevealItem key={post.slug}>
-                    <PostRow post={post} />
-                  </RevealItem>
-                ))}
-              </ItemGroup>
-            </RevealGroup>
-          </SplitSection>
-
           <Reveal className="mt-16">
-            <ContactBand profile={profile} />
+            <ContactBand profile={profile} heading={copy.contact.heading} />
           </Reveal>
         </Container>
       </Section>

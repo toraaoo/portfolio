@@ -1,0 +1,53 @@
+{
+  "$schema": "./schemas/projects.schema.json",
+  "projects": [
+    {
+      "slug": "project-one",
+      "name": "Project One",
+      "blurb": "One-line description shown on cards.",
+      "summary": "A short overview paragraph shown at the top of the project page.",
+      "year": "2025",
+      "status": "shipped",
+      "role": "Solo — design and build",
+      "metric": "1k weekly users",
+      "stack": ["TypeScript", "PostgreSQL"],
+      "featured": true,
+      "sections": [
+        {
+          "heading": "Problem",
+          "body": ["What was hard about it and why it mattered."]
+        },
+        {
+          "heading": "Approach",
+          "body": ["How you solved it and the trade-offs you made."]
+        }
+      ],
+      "sourceUrl": "https://github.com/yourhandle/project-one",
+      "liveUrl": "https://example.com"
+    },
+    {
+      "slug": "project-two",
+      "name": "Project Two",
+      "blurb": "One-line description shown on cards.",
+      "summary": "A short overview paragraph shown at the top of the project page.",
+      "year": "2024",
+      "status": "open_source",
+      "role": "Maintainer",
+      "metric": "200 GitHub stars",
+      "stack": ["Go"],
+      "featured": true,
+      "sourceUrl": "https://github.com/yourhandle/project-two"
+    },
+    {
+      "slug": "project-three",
+      "name": "Project Three",
+      "blurb": "One-line description shown on cards.",
+      "summary": "A short overview paragraph shown at the top of the project page.",
+      "year": "2024",
+      "status": "wip",
+      "role": "Lead engineer",
+      "metric": "In progress",
+      "stack": ["React", "Next.js"]
+    }
+  ]
+}

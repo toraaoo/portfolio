@@ -5,11 +5,9 @@ import { RevealGroup, RevealItem } from "@/components/motion/reveal"
 import { Typewriter } from "@/components/motion/typewriter"
 
 import { ProjectGallery } from "@/features/work/components"
-import { loadProfile, loadProjects } from "@/lib/content"
+import { pages, profile, projects } from "@/lib/content"
 
-async function WorkPage() {
-  const [profile, projects] = await Promise.all([loadProfile(), loadProjects()])
-
+function WorkPage() {
   return (
     <Container className="pt-16">
       <RevealGroup>
@@ -21,12 +19,11 @@ async function WorkPage() {
           </Kicker>
         </RevealItem>
         <h1 className="font-heading text-4xl font-medium tracking-tighter">
-          <MaskText text="Work" delay={0.1} />
+          <MaskText text={pages.work.title} delay={0.1} />
         </h1>
         <RevealItem>
           <p className="mt-4 max-w-140 text-md text-muted-foreground">
-            Things I designed and built — mostly backend systems and the tools
-            that make them usable.
+            {pages.work.description}
           </p>
         </RevealItem>
       </RevealGroup>
