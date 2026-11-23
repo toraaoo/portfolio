@@ -26,8 +26,8 @@ function AboutPage() {
 
   return (
     <div>
-      <Section className="pt-16 pb-16">
-        <Container>
+      <Section className="min-h-[calc(100svh-3.75rem)] pt-16 pb-16">
+        <Container className="flex flex-1 flex-col justify-center">
           <RevealGroup>
             <RevealItem>
               <Kicker className="mb-4.5">
