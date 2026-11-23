@@ -34,11 +34,12 @@ export const group: Variants = {
 }
 
 export const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 8 },
+  hidden: { opacity: 0, y: 10, filter: "blur(6px)" },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: duration.slow, ease: EASE_OUT },
+    filter: "blur(0px)",
+    transition: { duration: duration.slower, ease: EASE_OUT },
   },
   exit: { opacity: 0, transition: { duration: duration.fast } },
 }
