@@ -1,4 +1,5 @@
 import { JetBrains_Mono, Space_Grotesk } from "next/font/google"
+import { Analytics } from "@vercel/analytics/next"
 
 import "./globals.css"
 
@@ -50,6 +51,7 @@ export default function RootLayout({
             </div>
           </MotionProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )
